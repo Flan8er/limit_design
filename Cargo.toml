@@ -13,6 +13,8 @@ getrandom = { version = "0.3", features = ["wasm_js"] }
 
 leptos-bevy-canvas = "0.2.0"
 
+reentry_simulation = { path = "../../Vertec/bevy_galaga" }
+
 leptos_icons = { version = "0.5" }
 icondata = { version = "0.5" }                                      # https://carloskiki.github.io/icondata/
 leptos-use = { version = "0.15.7", features = ["use_window_size"] }
