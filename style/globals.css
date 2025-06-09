@@ -52,6 +52,10 @@
 }
 
 @layer utilities {
+    /* canvas {
+        @apply w-full h-full block border-none outline-none;
+    } */
+
     .glass {
         @apply backdrop-blur-[16px] backdrop-saturate-[180%] rounded-[12px] border;
         background-color: rgba(255, 255, 255, 0.75);
