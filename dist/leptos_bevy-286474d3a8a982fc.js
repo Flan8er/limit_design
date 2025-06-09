@@ -198,11 +198,11 @@ function debugString(val) {
     return className;
 }
 function __wbg_adapter_22(arg0, arg1, arg2) {
-    wasm.closure59_externref_shim(arg0, arg1, arg2);
+    wasm.closure63_externref_shim(arg0, arg1, arg2);
 }
 
-function __wbg_adapter_81(arg0, arg1, arg2, arg3) {
-    wasm.closure77_externref_shim(arg0, arg1, arg2, arg3);
+function __wbg_adapter_79(arg0, arg1, arg2, arg3) {
+    wasm.closure81_externref_shim(arg0, arg1, arg2, arg3);
 }
 
 const __wbindgen_enum_ReadableStreamType = ["bytes"];
@@ -460,7 +460,7 @@ function __wbg_get_imports() {
                 const a = state0.a;
                 state0.a = 0;
                 try {
-                    return __wbg_adapter_81(a, state0.b, arg0, arg1);
+                    return __wbg_adapter_79(a, state0.b, arg0, arg1);
                 } finally {
                     state0.a = a;
                 }
@@ -500,9 +500,6 @@ function __wbg_get_imports() {
     };
     imports.wbg.__wbg_respond_1f279fa9f8edcb1c = function() { return handleError(function (arg0, arg1) {
         arg0.respond(arg1 >>> 0);
-    }, arguments) };
-    imports.wbg.__wbg_setAttribute_2704501201f15687 = function() { return handleError(function (arg0, arg1, arg2, arg3, arg4) {
-        arg0.setAttribute(getStringFromWasm0(arg1, arg2), getStringFromWasm0(arg3, arg4));
     }, arguments) };
     imports.wbg.__wbg_set_65595bdd868b3009 = function(arg0, arg1, arg2) {
         arg0.set(arg1, arg2 >>> 0);
@@ -550,8 +547,8 @@ function __wbg_get_imports() {
         const ret = false;
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper5473 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 60, __wbg_adapter_22);
+    imports.wbg.__wbindgen_closure_wrapper5512 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 64, __wbg_adapter_22);
         return ret;
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
@@ -647,7 +644,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('leptos_boilerplate_bg.wasm', import.meta.url);
+        module_or_path = new URL('leptos_bevy_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 
