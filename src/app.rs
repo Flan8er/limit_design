@@ -18,21 +18,10 @@ pub fn App() -> impl IntoView {
     }
 }
 
-#[derive(Resource)]
-struct SineWaveTime {
-    time: f32,
-}
-
 #[derive(Component)]
-struct SineWave {
-    offset: f32,     // horizontal position (x)
-    amplitude: f32,  // height of oscillation
-    wavelength: f32, // peak-to-peak distance
-    speed: f32,      // how fast each particle bobs up/down
+struct Particle {
+    position: Vec3,
 }
-
-#[derive(Component)]
-struct Direction(Vec3);
 
 fn init_bevy_app() -> App {
     let mut app = App::new();
@@ -47,9 +36,8 @@ fn init_bevy_app() -> App {
         ..default()
     }))
     .insert_resource(ClearColor(Color::NONE))
-    .insert_resource(SineWaveTime { time: 0.0 })
-    .add_systems(Startup, (setup_ui, spawn_particle))
-    .add_systems(Update, (update_sine_time, animate_sine_wave))
+    .add_systems(Startup, (setup_ui, spawn_particles))
+    .add_systems(Update, animate_sine_wave)
     .add_plugins(PanOrbitCameraPlugin);
     app
 }
@@ -57,55 +45,78 @@ fn init_bevy_app() -> App {
 fn setup_ui(mut commands: Commands) {
     commands.spawn((
         Camera3d::default(),
-        Transform::from_xyz(0.0, 0., 100.0).looking_at(Vec3::ZERO, Vec3::Y),
+        Transform::from_xyz(0.0, -125., 25.0).looking_at(Vec3::ZERO, Vec3::Y),
         PanOrbitCamera::default(),
     ));
 
     commands.spawn((PointLight::default(), Transform::from_xyz(4.0, 8.0, 4.0)));
+
+    commands.insert_resource(AmbientLight {
+        color: Color::WHITE,
+        brightness: 2000.,
+    });
 }
 
-fn spawn_particle(
+/// Calculates the unit radius for evenly distribued points inside a circle
+fn radius(index: u32, total_points: u32, boundary_points: u32) -> f32 {
+    if index > total_points - boundary_points {
+        1.0
+    } else {
+        (index as f32 - 0.5).sqrt()
+            / ((total_points as f32 - boundary_points as f32 + 1.0) / 2.0).sqrt()
+    }
+}
+
+fn spawn_particles(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {
-    let amplitude = 12.0;
-    let speed = 1.;
-    let spacing = 1.;
-    let wavelength = 100.0;
-    let count = 200;
+    let total_points: u32 = 5_000;
+    let distribution: u32 = 1;
+    let scale = 80.0;
 
-    for i in 0..count {
-        let x = i as f32 * spacing - (count as f32 * spacing / 2.0);
+    let boundary_points = (distribution as f32 * (total_points as f32).sqrt()) as u32;
+    let phi = ((5.0_f32).sqrt() + 1.0) / 2.0;
+    let golden_angle = std::f32::consts::TAU * (1.0 - 1.0 / phi);
+
+    let mesh = meshes.add(Sphere::default());
+    let material = materials.add(StandardMaterial {
+        base_color: Color::srgb(0.208, 0.612, 1.),
+        ..default()
+    });
+
+    for i in 0..total_points {
+        let r = radius(i, total_points, boundary_points) * scale;
+        let theta = i as f32 * golden_angle;
+
+        let pos = Vec3::new(r * theta.cos(), r * theta.sin(), 0.0);
+
         commands.spawn((
-            Mesh3d(meshes.add(Sphere::default())),
-            MeshMaterial3d(materials.add(StandardMaterial {
-                base_color: Color::srgb(0.8, 0.0, 0.0),
-                ..default()
-            })),
-            SineWave {
-                offset: x,
-                amplitude,
-                wavelength,
-                speed,
-            },
-            Direction(Vec3::Y), // Direction the sine wave should animate in
+            Mesh3d(mesh.clone()),
+            MeshMaterial3d(material.clone()),
+            Transform::from_translation(pos).with_scale(Vec3::splat(0.5)),
+            Particle { position: pos },
         ));
     }
 }
 
-fn update_sine_time(time: Res<Time>, mut sine_wave: ResMut<SineWaveTime>) {
-    sine_wave.time += time.delta_secs();
-}
+fn animate_sine_wave(time: Res<Time>, mut query: Query<(&Particle, &mut Transform)>) {
+    let t = time.elapsed_secs();
 
-fn animate_sine_wave(
-    sine_wave: Res<SineWaveTime>,
-    mut query: Query<(&SineWave, &Direction, &mut Transform)>,
-) {
-    let t = sine_wave.time;
-    for (wave, dir, mut transform) in &mut query {
-        let k = std::f32::consts::TAU / wave.wavelength; // 2π / λ
-        let y = wave.amplitude * (k * wave.offset + wave.speed * t).sin();
-        transform.translation = wave.offset * Vec3::X + y * dir.0;
+    let amplitude = 2.0; // wave height
+    let wavelength = 30.0; // peak-to-peak distance
+    let omega = 0.5; // wave propagation speed
+
+    let k = std::f32::consts::TAU / wavelength; // spatial frequency
+    for (particle, mut transform) in &mut query {
+        let x = particle.position.x;
+        let y = particle.position.y;
+        let r = (x * x + y * y).sqrt();
+
+        let phase = k * r + omega * t;
+        let z = amplitude * phase.sin();
+
+        transform.translation = Vec3::new(x, y, z);
     }
 }
