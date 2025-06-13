@@ -6,15 +6,36 @@ use leptos_bevy_canvas::prelude::*;
 #[component]
 pub fn App() -> impl IntoView {
     view! {
-        <main class="w-screen h-screen flex items-center justify-center overflow-hidden">
-            <div class="w-full h-full">
-                <BevyCanvas
-                    init=move || {
-                        init_bevy_app()
-                    }
-                />
+        <main class="w-dvw h-dvh relative max-w-[1580px] mx-auto">
+            // Header
+            <div class="glass h-[50px] lg:h-[75px] border-b-[1px] sticky top-0 w-full flex items-center px-12 gap-12 z-10">
+                // Name plate
+                <div class="flex items-center gap-4">
+                    <div class="bg-accent w-[10px] h-[10px]" />
+                    <h2 class="uppercase">"Limit Design"</h2>
+                </div>
+            </div>
+
+            // Content window
+            <div class="w-full flex h-max relative">
+                // Margin display
+                <MainMargin class="h-screen sticky left-0 top-[50px] lg:top-[75px]"/>
+
+                // Main content
+                <div class="w-full h-[12000px] ">
+                </div>
+
+                // Margin display
+                <MainMargin class="h-screen sticky right-0 top-[50px] lg:top-[75px]"/>
             </div>
         </main>
+    }
+}
+
+#[component]
+pub fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
+    view! {
+        <div class=format!("w-[40px] max-sm:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] {}", class)/>
     }
 }
 

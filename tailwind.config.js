@@ -1,4 +1,3 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: {
@@ -131,10 +130,6 @@ module.exports = {
         lg: "4rem",
         xl: "5rem",
       },
-      // fontFamily: {
-      //   sans: ["var(--font-sans)", ...fontFamily.sans],
-      //   heading: ["var(--font-heading)", ...fontFamily.sans],
-      // },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },

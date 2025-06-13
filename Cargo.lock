@@ -3380,26 +3380,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "leptos_bevy"
-version = "0.1.0"
-dependencies = [
- "bevy",
- "bevy_panorbit_camera",
- "console_error_panic_hook",
- "getrandom 0.3.3",
- "icondata",
- "leptos",
- "leptos-bevy-canvas",
- "leptos-use",
- "leptos_icons",
- "leptos_meta",
- "leptos_router",
- "strum",
- "strum_macros",
- "web-sys",
-]
-
-[[package]]
 name = "leptos_config"
 version = "0.7.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3601,6 +3581,26 @@ checksum = "3c8469b4a23b962c1396b9b451dda50ef5b283e8dd309d69033475fa9b334324"
 dependencies = [
  "libc",
  "pkg-config",
+]
+
+[[package]]
+name = "limit"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy_panorbit_camera",
+ "console_error_panic_hook",
+ "getrandom 0.3.3",
+ "icondata",
+ "leptos",
+ "leptos-bevy-canvas",
+ "leptos-use",
+ "leptos_icons",
+ "leptos_meta",
+ "leptos_router",
+ "strum",
+ "strum_macros",
+ "web-sys",
 ]
 
 [[package]]
