@@ -38,15 +38,36 @@
     }
 
     h1 {
-        @apply font-medium; /* default was font-semibold → 600, now 500 */
+        @apply font-medium;
+        font-size: 36px; /* Default */
     }
 
     h2 {
-        @apply font-normal; /* default was font-medium → 500, now 400 */
+        @apply font-normal;
+        font-size: 24px;
     }
 
     h3 {
-        @apply font-light; /* default was font-normal → 400, now 300 */
+        @apply font-light;
+        font-size: 14px;
+    }
+
+    p,
+    li,
+    span {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    button {
+        font-size: 12px;
+        padding: 0.5rem 1rem;
+    }
+
+    input,
+    textarea {
+        font-size: 12px;
+        padding: 0.5rem;
     }
 
     /* Change the color of user-select properties */
@@ -57,6 +78,35 @@
     ::-moz-selection {
         background-color: hsl(var(--accent));
         color: hsl(var(--primary-text));
+    }
+}
+
+@media (min-resolution: 2dppx) {
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 42px;
+    }
+    h3 {
+        font-size: 36px;
+    }
+    p,
+    li,
+    span {
+        font-size: 20px; /* from 16px */
+        line-height: 1.6;
+    }
+    button {
+        font-size: 20px;
+    }
+    svg {
+        width: 52px;
+        height: 52px;
+    }
+    input,
+    textarea {
+        font-size: 20px;
     }
 }
 

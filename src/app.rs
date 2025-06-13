@@ -2,17 +2,34 @@ use bevy::prelude::*;
 use bevy_panorbit_camera::{PanOrbitCamera, PanOrbitCameraPlugin};
 use leptos::prelude::*;
 use leptos_bevy_canvas::prelude::*;
+use leptos_icons::Icon;
 
 #[component]
 pub fn App() -> impl IntoView {
     view! {
         <main class="w-dvw h-dvh relative max-w-[1580px] mx-auto">
             // Header
-            <div class="glass h-[50px] lg:h-[75px] border-b-[1px] sticky top-0 w-full flex items-center px-12 gap-12 z-10">
-                // Name plate
-                <div class="flex items-center gap-4">
-                    <div class="bg-accent w-[10px] h-[10px]" />
-                    <h2 class="uppercase">"Limit Design"</h2>
+            <div class="glass h-[50px] lg:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 pl-12">
+                <div class="w-full h-full flex items-center relative">
+                    // Name plate
+                    <div class="flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2">
+                        <div class="bg-accent w-[10px] h-[10px]" />
+                        <h3 class="uppercase">"Casey Vaughn"</h3>
+                    </div>
+
+                    <div class="max-lg:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-8">
+                        <h3>About Me</h3>
+                        <h3>Experiments</h3> // on hover bubble thats animated to kinda bounce
+                        <h3>Skills</h3>
+                    </div>
+                    // put socials in this one
+                    // have another one for navigation
+                    // idk maybe flip-flop those two
+                    <div class="lg:hidden flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2">
+                        <button>
+                            <Icon icon=icondata::CgMenu width="24px" height="24px"/>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -35,7 +52,7 @@ pub fn App() -> impl IntoView {
 #[component]
 pub fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
-        <div class=format!("w-[40px] max-sm:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] {}", class)/>
+        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] {}", class)/>
     }
 }
 
