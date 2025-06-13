@@ -81,35 +81,6 @@
     }
 }
 
-@media (min-resolution: 2dppx) {
-    h1 {
-        font-size: 48px;
-    }
-    h2 {
-        font-size: 42px;
-    }
-    h3 {
-        font-size: 36px;
-    }
-    p,
-    li,
-    span {
-        font-size: 20px; /* from 16px */
-        line-height: 1.6;
-    }
-    button {
-        font-size: 20px;
-    }
-    svg {
-        width: 52px;
-        height: 52px;
-    }
-    input,
-    textarea {
-        font-size: 20px;
-    }
-}
-
 @layer utilities {
     canvas {
         @apply border-none outline-none;

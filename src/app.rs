@@ -9,23 +9,21 @@ pub fn App() -> impl IntoView {
     view! {
         <main class="w-dvw h-dvh relative max-w-[1580px] mx-auto">
             // Header
-            <div class="glass h-[50px] lg:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 pl-12">
+            <div class="glass h-[50px] md:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 pl-8 md:pl-12">
                 <div class="w-full h-full flex items-center relative">
                     // Name plate
                     <div class="flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2">
                         <div class="bg-accent w-[10px] h-[10px]" />
-                        <h3 class="uppercase">"Casey Vaughn"</h3>
+                        <h3 class="uppercase text-fluid-h3">"Casey Vaughn"</h3>
                     </div>
 
-                    <div class="max-lg:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-8">
+                    <div class="max-md:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-8">
                         <h3>About Me</h3>
                         <h3>Experiments</h3> // on hover bubble thats animated to kinda bounce
                         <h3>Skills</h3>
                     </div>
-                    // put socials in this one
-                    // have another one for navigation
-                    // idk maybe flip-flop those two
-                    <div class="lg:hidden flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2">
+
+                    <div class="md:hidden flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 pr-[8px]">
                         <button>
                             <Icon icon=icondata::CgMenu width="24px" height="24px"/>
                         </button>
@@ -36,14 +34,14 @@ pub fn App() -> impl IntoView {
             // Content window
             <div class="w-full flex h-max relative">
                 // Margin display
-                <MainMargin class="h-screen sticky left-0 top-[50px] lg:top-[75px]"/>
+                <MainMargin class="h-screen sticky left-0 top-[50px] md:top-[75px]"/>
 
                 // Main content
                 <div class="w-full h-[12000px] ">
                 </div>
 
                 // Margin display
-                <MainMargin class="h-screen sticky right-0 top-[50px] lg:top-[75px]"/>
+                <MainMargin class="h-screen sticky right-0 top-[50px] md:top-[75px]"/>
             </div>
         </main>
     }
