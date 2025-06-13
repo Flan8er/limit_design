@@ -34,14 +34,14 @@ pub fn App() -> impl IntoView {
             // Content window
             <div class="w-full flex h-max relative">
                 // Margin display
-                <MainMargin class="h-screen sticky left-0 top-[50px] md:top-[75px]"/>
+                <MainMargin class="h-screen sticky left-0 top-[75px]"/>
 
                 // Main content
                 <div class="w-full h-[12000px] ">
                 </div>
 
                 // Margin display
-                <MainMargin class="h-screen sticky right-0 top-[50px] md:top-[75px]"/>
+                <MainMargin class="h-screen sticky right-0 top-[75px]"/>
             </div>
         </main>
     }
