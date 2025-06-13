@@ -24,8 +24,8 @@ module.exports = {
       },
       fontFamily: {
         sans: [
-          "GeistSans",
           "Inter",
+          "GeistSans",
           "-apple-system",
           "BlinkMacSystemFont",
           "Segoe UI",
@@ -53,7 +53,12 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
+        "secondary-background": "hsl(var(--secondary-background))",
+        "tertiary-background": "hsl(var(--tertiary-background))",
         foreground: "hsl(var(--foreground))",
+        "primary-text": "hsl(var(--primary-text))",
+        "primary-text-muted": "hsl(var(--primary-text-muted))",
+        "secondary-text": "hsl(var(--secondary-text))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
