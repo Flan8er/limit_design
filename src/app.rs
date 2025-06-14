@@ -1,7 +1,4 @@
-use leptos::{
-    ev,
-    prelude::{Update, *},
-};
+use leptos::prelude::{Update, *};
 use leptos_icons::Icon;
 use leptos_meta::provide_meta_context;
 use leptos_router::{
@@ -9,7 +6,7 @@ use leptos_router::{
     hooks::use_navigate,
     path, MatchNestedRoutes,
 };
-use web_sys::{wasm_bindgen::JsCast, MouseEvent};
+use thaw::{DrawerPosition, OverlayDrawer};
 
 use crate::pages::home::Home;
 
@@ -59,14 +56,14 @@ pub fn MainPage() -> impl IntoView {
                 <div class="w-full h-full flex items-center">
                     // Name plate
                     <div
-                        class="flex items-center gap-2 absolute left-8 md:left-12 top-1/2 -translate-y-1/2 cursor-default"
+                        class="flex items-center gap-2 absolute left-8 md:left-12 top-1/2 -translate-y-1/2 cursor-grab"
                         on:click=navigate_home
                     >
                         <div class="bg-accent w-[10px] h-[10px]" />
                         <h3 class="uppercase text-fluid-h3">"Casey Vaughn"</h3>
                     </div>
 
-                    <div class="max-md:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-12">
+                    <div class="max-md:hidden rounded-full px-6 py-3 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-12">
                         <For
                             each={
                                 let nav_menu = nav_menu.clone();
@@ -107,31 +104,6 @@ pub fn MainPage() -> impl IntoView {
 #[component]
 fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
     let open = RwSignal::new(false);
-    let menu_ref: NodeRef<leptos::html::Div> = NodeRef::new();
-
-    // Close menu on outside click
-    let _ = window_event_listener(ev::click, move |ev: MouseEvent| {
-        if let Some(target) = ev.target() {
-            if let Some(menu_el) = menu_ref.get() {
-                if let Ok(target_node) = target.dyn_into::<web_sys::Node>() {
-                    if !menu_el.contains(Some(&target_node)) {
-                        open.set(false);
-                    }
-                }
-            }
-        }
-    });
-    let _ = window_event_listener(ev::touchstart, move |ev: web_sys::TouchEvent| {
-        if let Some(target) = ev.target() {
-            if let Some(menu_el) = menu_ref.get() {
-                if let Ok(target_node) = target.dyn_into::<web_sys::Node>() {
-                    if !menu_el.contains(Some(&target_node)) {
-                        open.set(false);
-                    }
-                }
-            }
-        }
-    });
 
     let on_select = {
         let navigate = use_navigate();
@@ -142,7 +114,7 @@ fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
     };
 
     view! {
-        <div class="relative" node_ref=menu_ref>
+        <div>
             <button
                 class="rounded-md"
                 on:click=move |_| open.update(|v| *v = !*v)
@@ -150,8 +122,28 @@ fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
                 <Icon icon=icondata::CgMenu width="24px" height="24px"/>
             </button>
 
-            {move || open.get().then(|| view! {
-                <div class="absolute right-0 mt-2 w-48 bg-tertiary-background shadow-lg rounded-md z-50">
+            <OverlayDrawer open position=DrawerPosition::Right class="w-screen h-screen bg-white/0 backdrop-blur-[5px]">
+                <button
+                    class="mt-[4px] ml-auto mr-[8px]"
+                    on:click=move |_| open.update(|v| *v = !*v)
+                >
+                    <Icon icon=icondata::CgClose width="24px" height="24px"/>
+                </button>
+
+                <div class="w-full h-full flex flex-col items-center justify-center gap-4">
+                    <button
+                        class="hover:text-primary-text-muted"
+                        on:click=move |_| {
+                            on_select.run(String::from("/"));
+                            open.set(false);
+                        }
+                    >
+                        <h2
+                            class="hover:text-primary-text-muted"
+                        >
+                            "Home"
+                        </h2>
+                    </button>
                     {menu_items
                         .iter()
                         .map(|(label, route)| {
@@ -160,20 +152,20 @@ fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
                             let on_select = on_select.clone();
                             view! {
                                 <button
-                                    class="flex items-center w-full px-4 py-2 hover:bg-secondary-background rounded-md text-secondary-text"
+                                    class="hover:text-primary-text-muted"
                                     on:click=move |_| {
                                         on_select.run(route.clone());
                                         open.set(false);
                                     }
                                 >
-                                    {label}
+                                    <h2>{label}</h2>
                                 </button>
                             }
                         })
                         .collect_view()
                     }
                 </div>
-            })}
+            </OverlayDrawer>
         </div>
     }
 }
@@ -184,8 +176,8 @@ fn NavItem(name: &'static str, absolute_route: &'static str) -> impl IntoView {
 
     let base_style = "\
         position: absolute;\
-        top: -14px;\
-        bottom: -14px;\
+        top: -11px;\
+        bottom: -11px;\
         left: -22px;\
         right: -22px;\
         background: rgba(255, 255, 255, 0.2);\
@@ -201,7 +193,7 @@ fn NavItem(name: &'static str, absolute_route: &'static str) -> impl IntoView {
 
     view! {
         <h3
-            class="relative cursor-default"
+            class="relative cursor-grab whitespace-nowrap"
         >
             <span
                 style=move || item_style.get()
