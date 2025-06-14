@@ -50,7 +50,7 @@ pub fn MainPage() -> impl IntoView {
     ];
 
     view! {
-        <main class="w-dvw h-dvh relative max-w-[1580px] mx-auto bg-background">
+        <main class="w-full h-full relative max-w-[1580px] mx-auto bg-background">
             // Header
             <div class="glass h-[50px] md:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 relative">
                 <div class="w-full h-full flex items-center">
@@ -84,19 +84,22 @@ pub fn MainPage() -> impl IntoView {
                 </div>
             </div>
 
+
+
             // Content window
-            <div class="w-full flex h-max relative">
+            <div class="w-full h-full flex">
                 // Margin display
                 <MainMargin class="left-0"/>
 
                 // Main content
-                <div class="w-full">
+                <div class="w-full h-full overflow-auto">
                     <Outlet/>
                 </div>
 
                 // Margin display
                 <MainMargin class="right-0"/>
             </div>
+
         </main>
     }
 }
@@ -209,6 +212,6 @@ fn NavItem(name: &'static str, absolute_route: &'static str) -> impl IntoView {
 #[component]
 fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
-        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-screen sticky top-[75px] {}", class)/>
+        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
     }
 }

@@ -36,6 +36,7 @@
         font-feature-settings:
             "rlig" 1,
             "calt" 1;
+        height: 100dvh;
     }
 
     h1 {

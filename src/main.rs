@@ -12,7 +12,7 @@ pub fn main() {
 
     mount_to_body(move || {
         view! {
-            <ConfigProvider theme>
+            <ConfigProvider theme class="bg-background">
                 <App/>
             </ConfigProvider>
         }
