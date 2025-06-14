@@ -117,11 +117,11 @@ module.exports = {
         },
       },
       borderRadius: {
-        xl: "1.1875rem",
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
-        sm: "calc(var(--radius) - 4px)",
-        xs: "0.4375rem",
+        xl: "1rem",
+        lg: "0.5rem",
+        md: "0.375rem",
+        sm: "0.125rem",
+        xs: "0.1rem",
       },
       spacing: {
         xs: "1.5rem",

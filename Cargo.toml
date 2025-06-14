@@ -8,6 +8,7 @@ console_error_panic_hook = "0.1.7"
 leptos = { version = "0.7", features = ["csr"] }
 leptos_meta = { version = "0.7" }
 leptos_router = { version = "0.7" }
+thaw = "=0.4.7"
 
 getrandom = { version = "0.3", features = ["wasm_js"] }
 bevy = { version = "0.15" }
