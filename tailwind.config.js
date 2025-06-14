@@ -130,6 +130,30 @@ module.exports = {
         lg: "4rem",
         xl: "5rem",
       },
+      // rgba(0,0,0,0.1) 1px,
+      backgroundImage: {
+        "grid-lines": `
+          repeating-linear-gradient(
+            0deg,
+            rgba(0,0,0,0.1) 0,
+            hsl(var(--primary-text-muted) / 0.2) 2px,
+            transparent 1px,
+            transparent 100%
+          ),
+          repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.1) 0,
+            hsl(var(--primary-text-muted) / 0.2) 2px,
+            transparent 1px,
+            transparent 100%
+          )
+        `,
+      },
+      backgroundSize: {
+        "grid-20": "20px 20px",
+        "grid-30": "30px 30px",
+        "grid-40": "40px 40px",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: 0 },
