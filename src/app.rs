@@ -9,18 +9,18 @@ pub fn App() -> impl IntoView {
     view! {
         <main class="w-dvw h-dvh relative max-w-[1580px] mx-auto">
             // Header
-            <div class="glass h-[50px] md:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 pl-8 md:pl-12">
-                <div class="w-full h-full flex items-center relative">
+            <div class="glass h-[50px] md:h-[75px] border-b-[1px] absolute md:sticky top-0 w-full flex items-center z-10 relative">
+                <div class="w-full h-full flex items-center">
                     // Name plate
-                    <div class="flex items-center gap-2 absolute left-0 top-1/2 -translate-y-1/2">
+                    <div class="flex items-center gap-2 absolute left-8 md:left-12 top-1/2 -translate-y-1/2">
                         <div class="bg-accent w-[10px] h-[10px]" />
                         <h3 class="uppercase text-fluid-h3">"Casey Vaughn"</h3>
                     </div>
 
-                    <div class="max-md:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-8">
-                        <h3>About Me</h3>
-                        <h3>Experiments</h3> // on hover bubble thats animated to kinda bounce
-                        <h3>Skills</h3>
+                    <div class="max-md:hidden rounded-full px-6 py-4 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-12">
+                        <NavItem name="About Me"/>
+                        <NavItem name="Experiments"/>
+                        <NavItem name="Skills"/>
                     </div>
 
                     <div class="md:hidden flex items-center gap-2 absolute right-0 top-1/2 -translate-y-1/2 pr-[8px]">
@@ -38,6 +38,7 @@ pub fn App() -> impl IntoView {
 
                 // Main content
                 <div class="w-full h-[12000px] ">
+                <div class="w-full h-[75px] bg-red-600"/>
                 </div>
 
                 // Margin display
@@ -48,7 +49,45 @@ pub fn App() -> impl IntoView {
 }
 
 #[component]
-pub fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
+fn NavItem(name: &'static str) -> impl IntoView {
+    let base_style = "\
+        position: absolute;\
+        top: -14px;\
+        bottom: -14px;\
+        left: -22px;\
+        right: -22px;\
+        background: rgba(255, 255, 255, 0.2);\
+        border: 1px solid rgba(255, 255, 255, 0.5);\
+        border-radius: 9999px;\
+        z-index: 0;\
+        transition: opacity 0.2s ease-in-out;\
+    ";
+
+    let item_style = RwSignal::new(format!("{base_style} opacity: 0;"));
+
+    let do_something = move |_| {};
+
+    view! {
+        <h3
+            class="relative cursor-default"
+        >
+            <span
+                style=move || item_style.get()
+                on:mouseover=move |_| {
+                    item_style.set(format!("{base_style} opacity: 1;"));
+                }
+                on:mouseleave=move |_| {
+                    item_style.set(format!("{base_style} opacity: 0;"));
+                }
+                on:click=do_something
+            ></span>
+            {name}
+        </h3>
+    }
+}
+
+#[component]
+fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] {}", class)/>
     }
