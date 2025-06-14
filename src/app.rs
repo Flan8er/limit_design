@@ -90,7 +90,7 @@ pub fn MainPage() -> impl IntoView {
                 <MainMargin class="left-0"/>
 
                 // Main content
-                <div class="w-full h-[12000px] ">
+                <div class="w-full">
                     <Outlet/>
                 </div>
 
@@ -130,19 +130,15 @@ fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
                     <Icon icon=icondata::CgClose width="24px" height="24px"/>
                 </button>
 
-                <div class="w-full h-full flex flex-col items-center justify-center gap-4">
+                <div class="w-full h-full flex flex-col items-center justify-center gap-4 text-primary-text-muted">
                     <button
-                        class="hover:text-primary-text-muted"
+                        class="hover:text-primary-text"
                         on:click=move |_| {
                             on_select.run(String::from("/"));
                             open.set(false);
                         }
                     >
-                        <h2
-                            class="hover:text-primary-text-muted"
-                        >
-                            "Home"
-                        </h2>
+                        <h2>"Home"</h2>
                     </button>
                     {menu_items
                         .iter()
@@ -152,7 +148,7 @@ fn Menu(menu_items: Vec<(&'static str, &'static str)>) -> impl IntoView {
                             let on_select = on_select.clone();
                             view! {
                                 <button
-                                    class="hover:text-primary-text-muted"
+                                    class="hover:text-primary-text"
                                     on:click=move |_| {
                                         on_select.run(route.clone());
                                         open.set(false);
