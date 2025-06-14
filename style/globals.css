@@ -7,8 +7,9 @@
         /* Main green background */
         --background: 188 96% 10%;
         /* Secondary white background */
-        --secondary-background: 180, 8%,
-            95% /* Pure white background */ --tertiary-background: 0 0% 100%;
+        --secondary-background: 180, 8%, 95%;
+        /* Pure white background */
+        --tertiary-background: 0 0% 100%;
         /* Text for use on green background */
         --primary-text: 0 0% 100%;
         /* Muted text for use on green background */

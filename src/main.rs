@@ -1,7 +1,7 @@
-use std::collections::HashMap;
-
 use leptos::prelude::*;
 mod app;
+pub mod components;
+pub mod pages;
 
 use app::*;
 use thaw::{ConfigProvider, Theme};
