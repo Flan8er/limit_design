@@ -93,4 +93,49 @@
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
     }
+
+    .grid-background {
+        @apply bg-grid-lines border [background-position:-2px_-2px];
+        mask-image: linear-gradient(
+            to bottom,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        mask-size: 100% 100%;
+        mask-repeat: no-repeat;
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 0) 100%
+        );
+        -webkit-mask-size: 100% 100%;
+        -webkit-mask-repeat: no-repeat;
+    }
+
+    .margin-background-2 {
+        /* @apply bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)]; */
+        /* your gradient */
+        background-image: repeating-linear-gradient(
+            315deg,
+            currentColor 0px,
+            currentColor 1px,
+            transparent 0px,
+            transparent 10px
+        );
+        /* your grid sizing */
+        background-size: 10px 10px;
+        /* fixed attachment */
+        background-attachment: fixed;
+    }
+}
+
+@keyframes mask-scroll {
+    0% {
+        mask-position: 0% 100%;
+        -webkit-mask-position: 0% 100%;
+    }
+    100% {
+        mask-position: 0% 0%;
+        -webkit-mask-position: 0% 0%;
+    }
 }

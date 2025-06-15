@@ -89,15 +89,18 @@ pub fn MainPage() -> impl IntoView {
             // Content window
             <div class="w-full h-full flex">
                 // Margin display
-                <MainMargin class="left-0"/>
+                <MainMargin1 class="left-0"/>
 
                 // Main content
-                <div class="w-full h-full overflow-auto">
-                    <Outlet/>
+                <div class="w-full h-full relative z-0">
+                    <AnimatedStripes/>
+                    <div class="w-full h-full z-[10] relative"> //
+                        <Outlet/>
+                    </div>
                 </div>
 
                 // Margin display
-                <MainMargin class="right-0"/>
+                <MainMargin1 class="right-0"/>
             </div>
 
         </main>
@@ -210,8 +213,48 @@ fn NavItem(name: &'static str, absolute_route: &'static str) -> impl IntoView {
 }
 
 #[component]
-fn MainMargin(#[prop(optional)] class: &'static str) -> impl IntoView {
+fn MainMargin1(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
+    }
+}
+#[component]
+fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
+    view! {
+        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
+    }
+}
+#[component]
+fn AnimatedStripes() -> impl IntoView {
+    view! {
+        <div
+            class="absolute inset-0 pointer-events-none text-tertiary-background"
+            style="
+                  background-image: repeating-linear-gradient(35deg, currentColor 0px, currentColor 1px, transparent 0px, transparent 80px);
+                  mask-image: linear-gradient(125deg,
+                    rgba(0, 0, 0, 0) 0px,
+                    rgba(0, 0, 0, 0) calc(50% - 150px),
+                    rgba(0, 0, 0, 0.04) 50%,
+                    rgba(0, 0, 0, 0) calc(50% + 150px),
+                    rgba(0, 0, 0, 0) 100%
+                  );
+                  -webkit-mask-image: linear-gradient(150deg,
+                    rgba(0, 0, 0, 0) 0px,
+                    rgba(0, 0, 0, 0) calc(50% - 150px),
+                    rgba(0, 0, 0, 0.04) 50%,
+                    rgba(0, 0, 0, 0) calc(50% + 150px),
+                    rgba(0, 0, 0, 0) 100%
+                  );
+                  mask-size: 100% 300%;
+                  -webkit-mask-size: 100% 300%;
+                  mask-repeat: no-repeat;
+                  -webkit-mask-repeat: no-repeat;
+
+                  mask-position: 0% 0%;
+                  -webkit-mask-position: 0% 0%;
+                  animation: mask-scroll 10s linear infinite;
+                  -webkit-animation: mask-scroll 10s linear infinite;
+                "
+          ></div>
     }
 }
