@@ -89,6 +89,7 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          active: "hsl(var(--card-active))",
         },
         surreal: {
           5: "#fe1ca9",
