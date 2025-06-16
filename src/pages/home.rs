@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use leptos_icons::Icon;
+use leptos_router::hooks::use_navigate;
 
 #[component]
 pub fn Home() -> impl IntoView {
@@ -42,7 +43,7 @@ pub fn Home() -> impl IntoView {
                         </div>
                         // have one section for quick references to skill/technologies
                         // have another section for contact stuff
-                        <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex flex-col md:flex-row gap-4 md:items-center">
                             <IconContainer link="https://github.com/Flan8er">
                                 <Icon icon=icondata::AiGithubFilled width="100%" height="100%"/>
                             </IconContainer>
@@ -52,6 +53,8 @@ pub fn Home() -> impl IntoView {
                             <IconContainer link="mailto:info@example.com">
                                 <Icon icon=icondata::BiAtRegular width="100%" height="100%"/>
                             </IconContainer>
+
+                            <ServiceButton/>
                         </div>
                     </div>
                 </div>
@@ -67,6 +70,28 @@ pub fn Home() -> impl IntoView {
                     />
                 </div>
             </div>
+        </div>
+    }
+}
+
+#[component]
+fn ServiceButton() -> impl IntoView {
+    let navigate = use_navigate();
+    let icon_style = RwSignal::new(String::from(
+        "transition-duration: 300ms; transform: rotate(-45deg);",
+    ));
+
+    view! {
+        <div
+            class="max-md:hidden ml-auto bg-accent w-[175px] rounded-md hover:scale-[1.05] duration-300 p-4 hover:px-2 flex justify-between items-center cursor-default"
+            on:mouseenter=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(0deg);"))
+            on:mouseleave=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(-45deg);"))
+            on:click=move |_| navigate("/catalog", Default::default())
+        >
+            <h3 class="text-secondary-text font-medium">"View services"</h3>
+            <Icon icon=icondata::HiArrowSmallRightOutlineLg width="24px" height="24px"
+                style=icon_style
+            />
         </div>
     }
 }

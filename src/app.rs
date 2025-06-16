@@ -28,7 +28,7 @@ pub fn MainPageRoutes() -> impl MatchNestedRoutes + Clone {
     view! {
         <ParentRoute path=path!("") view=MainPage>
             <Route path=path!("/") view=|| Home />
-            <Route path=path!("/aboutme") view=|| view!{<div>About Me</div>} />
+            <Route path=path!("/about") view=|| view!{<div>About Me</div>} />
             <Route path=path!("/experiments") view=|| view!{<div>Experiments</div>} />
             <Route path=path!("/catalog") view=|| view!{<div>Catalog</div>} />
             <Route path=path!("/skills") view=|| view!{<div>Skills</div>} />
@@ -43,7 +43,7 @@ pub fn MainPage() -> impl IntoView {
     let navigate_home = move |_| navigate("/", Default::default());
 
     let nav_menu = vec![
-        ("About Me", "/aboutme"),
+        ("About", "/about"),
         ("Experiments", "/experiments"),
         ("Catalog", "/catalog"),
         ("Skills", "/skills"),
@@ -227,34 +227,33 @@ fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
 #[component]
 fn AnimatedStripes() -> impl IntoView {
     view! {
-        <div
-            class="absolute inset-0 pointer-events-none text-tertiary-background"
-            style="
-                  background-image: repeating-linear-gradient(35deg, currentColor 0px, currentColor 1px, transparent 0px, transparent 80px);
-                  mask-image: linear-gradient(125deg,
-                    rgba(0, 0, 0, 0) 0px,
-                    rgba(0, 0, 0, 0) calc(50% - 150px),
-                    rgba(0, 0, 0, 0.04) 50%,
-                    rgba(0, 0, 0, 0) calc(50% + 150px),
-                    rgba(0, 0, 0, 0) 100%
-                  );
-                  -webkit-mask-image: linear-gradient(150deg,
-                    rgba(0, 0, 0, 0) 0px,
-                    rgba(0, 0, 0, 0) calc(50% - 150px),
-                    rgba(0, 0, 0, 0.04) 50%,
-                    rgba(0, 0, 0, 0) calc(50% + 150px),
-                    rgba(0, 0, 0, 0) 100%
-                  );
-                  mask-size: 100% 300%;
-                  -webkit-mask-size: 100% 300%;
-                  mask-repeat: no-repeat;
-                  -webkit-mask-repeat: no-repeat;
-
-                  mask-position: 0% 0%;
-                  -webkit-mask-position: 0% 0%;
-                  animation: mask-scroll 10s linear infinite;
-                  -webkit-animation: mask-scroll 10s linear infinite;
+        <div class="max-md:hidden absolute inset-0 overflow-hidden pointer-events-none">
+            <div
+                class="w-full h-[300%] absolute top-[-200%] left-0"
+                style="
+                    background-image: repeating-linear-gradient(35deg, currentColor 0px, currentColor 1px, transparent 0px, transparent 80px);
+                    mask-image: linear-gradient(125deg,
+                      rgba(0, 0, 0, 0) 0px,
+                      rgba(0, 0, 0, 0) calc(50% - 150px),
+                      rgba(0, 0, 0, 0.04) 50%,
+                      rgba(0, 0, 0, 0) calc(50% + 150px),
+                      rgba(0, 0, 0, 0) 100%
+                    );
+                    -webkit-mask-image: linear-gradient(150deg,
+                      rgba(0, 0, 0, 0) 0px,
+                      rgba(0, 0, 0, 0) calc(50% - 150px),
+                      rgba(0, 0, 0, 0.04) 50%,
+                      rgba(0, 0, 0, 0) calc(50% + 150px),
+                      rgba(0, 0, 0, 0) 100%
+                    );
+                    mask-size: 100% 100%;
+                    -webkit-mask-size: 100% 100%;
+                    mask-repeat: no-repeat;
+                    -webkit-mask-repeat: no-repeat;
+                    animation: stripe-shoot 10s linear infinite;
+                    will-change: transform;
                 "
-          ></div>
+            ></div>
+        </div>
     }
 }

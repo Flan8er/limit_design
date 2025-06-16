@@ -132,7 +132,7 @@
     }
 }
 
-@keyframes mask-scroll {
+/* @keyframes mask-scroll {
     0% {
         mask-position: 0% 100%;
         -webkit-mask-position: 0% 100%;
@@ -140,5 +140,13 @@
     100% {
         mask-position: 0% 0%;
         -webkit-mask-position: 0% 0%;
+    }
+} */
+@keyframes stripe-shoot {
+    0% {
+        transform: translate(0%, 0%);
+    }
+    100% {
+        transform: translate(81.9%, 33.2%);
     }
 }
