@@ -130,23 +130,117 @@
         /* fixed attachment */
         background-attachment: fixed;
     }
+
+    span.shooting-star {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        animation: animate 10s linear infinite;
+    }
+
+    span.shooting-star:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 300px;
+        height: 1px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.05),
+            transparent
+        );
+    }
+    span.shooting-star:nth-child(1) {
+        top: 0;
+        right: 0;
+        animation-delay: 0;
+        animation-duration: 8s;
+    }
+
+    span.shooting-star:nth-child(2) {
+        top: 0;
+        right: 80px;
+        left: initial;
+        animation-delay: -0.2s;
+        animation-duration: 10s;
+    }
+
+    span.shooting-star:nth-child(3) {
+        top: 80px;
+        right: 0px;
+        left: initial;
+        animation-delay: 0.4s;
+        animation-duration: 12s;
+    }
+
+    span.shooting-star:nth-child(4) {
+        top: 0px;
+        right: 180px;
+        left: initial;
+        animation-delay: 0.6s;
+        animation-duration: 7s;
+    }
+
+    span.shooting-star:nth-child(5) {
+        top: 0px;
+        right: 400px;
+        left: initial;
+        animation-delay: 0.8z;
+        animation-duration: 9s;
+    }
+
+    span.shooting-star:nth-child(6) {
+        top: 0px;
+        right: 600px;
+        left: initial;
+        animation-delay: 1s;
+        animation-duration: 11s;
+    }
+
+    span.shooting-star:nth-child(7) {
+        top: 300px;
+        right: 0px;
+        left: initial;
+        animation-delay: 1.2s;
+        animation-duration: 9.5s;
+    }
+
+    span.shooting-star:nth-child(8) {
+        top: 0px;
+        right: 700px;
+        left: initial;
+        animation-delay: 1.4s;
+        animation-duration: 10.25s;
+    }
+
+    span.shooting-star:nth-child(9) {
+        top: 0px;
+        right: 1000px;
+        left: initial;
+        animation-delay: 0.75s;
+        animation-duration: 8.5s;
+    }
+
+    span.shooting-star:nth-child(10) {
+        top: 0px;
+        right: 450px;
+        left: initial;
+        animation-delay: 2.75s;
+        animation-duration: 11.75s;
+    }
 }
 
-/* @keyframes mask-scroll {
+@keyframes animate {
     0% {
-        mask-position: 0% 100%;
-        -webkit-mask-position: 0% 100%;
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
     }
     100% {
-        mask-position: 0% 0%;
-        -webkit-mask-position: 0% 0%;
-    }
-} */
-@keyframes stripe-shoot {
-    0% {
-        transform: translate(0%, 0%);
-    }
-    100% {
-        transform: translate(81.9%, 33.2%);
+        transform: rotate(315deg) translateX(-1000px);
+        opacity: 0;
     }
 }

@@ -227,33 +227,17 @@ fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
 #[component]
 fn AnimatedStripes() -> impl IntoView {
     view! {
-        <div class="max-md:hidden absolute inset-0 overflow-hidden pointer-events-none">
-            <div
-                class="w-full h-[300%] absolute top-[-200%] left-0"
-                style="
-                    background-image: repeating-linear-gradient(35deg, currentColor 0px, currentColor 1px, transparent 0px, transparent 80px);
-                    mask-image: linear-gradient(125deg,
-                      rgba(0, 0, 0, 0) 0px,
-                      rgba(0, 0, 0, 0) calc(50% - 150px),
-                      rgba(0, 0, 0, 0.04) 50%,
-                      rgba(0, 0, 0, 0) calc(50% + 150px),
-                      rgba(0, 0, 0, 0) 100%
-                    );
-                    -webkit-mask-image: linear-gradient(150deg,
-                      rgba(0, 0, 0, 0) 0px,
-                      rgba(0, 0, 0, 0) calc(50% - 150px),
-                      rgba(0, 0, 0, 0.04) 50%,
-                      rgba(0, 0, 0, 0) calc(50% + 150px),
-                      rgba(0, 0, 0, 0) 100%
-                    );
-                    mask-size: 100% 100%;
-                    -webkit-mask-size: 100% 100%;
-                    mask-repeat: no-repeat;
-                    -webkit-mask-repeat: no-repeat;
-                    animation: stripe-shoot 10s linear infinite;
-                    will-change: transform;
-                "
-            ></div>
+        <div class=" absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
+            <span class="shooting-star"></span>
         </div>
     }
 }
