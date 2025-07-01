@@ -1,12 +1,15 @@
 use leptos::prelude::*;
 use leptos_icons::Icon;
 use leptos_router::hooks::use_navigate;
+use leptos_verlet::prelude::*;
+
+use crate::components::id_card::SpawnIdCard;
 
 #[component]
 pub fn Home() -> impl IntoView {
     view! {
-        <div class="w-full flex flex-col p-4 gap-4 items-end justify-end">
-            <div class="grid grid-cols-1 md:grid-cols-[4fr_3fr] gap-4 w-full">
+        <div class="w-full flex flex-col gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-[4fr_3fr] gap-4 w-full p-4">
                 <div class="w-full h-full relative p-4 flex md:flex-col">
                     <div class="absolute inset-0 grid-background bg-grid-20 z-[-1]"/>
 
@@ -59,17 +62,20 @@ pub fn Home() -> impl IntoView {
                     </div>
                 </div>
 
-                <div class="w-full">
-                    <img
-                        width="1841"
-                        height="2577"
-                        class="aspect-[3/4] min-h-full object-cover"
-                        style="mix-blend-mode: luminosity; opacity: 0.85; filter: brightness(1) contrast(0.81)"
-                        src="/img/CaseyVaughnUT-148.jpg"
-                        alt="Casey Vaughn"
+                <div class="w-full aspect-[3/4]">
+                    <VerletConfigProvider
+                        simulation_settings=SimulationSettings{
+                            jerk_damping: 0.5,
+                            simulation_bounds: SimulationBounds::new(false, false, false),
+                            ..default()
+                        }
                     />
+
+                    <SpawnIdCard/>
                 </div>
             </div>
+            <div class="w-full h-[400px] bg-secondary-background"></div> // tertiary-background
+            <div class="w-full h-[400px] bg-tertiary-background"></div>
         </div>
     }
 }

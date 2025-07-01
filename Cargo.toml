@@ -21,3 +21,4 @@ leptos-use = { version = "0.15.7", features = ["use_window_size"] }
 web-sys = { version = "0.3" }
 strum = "0.26"
 strum_macros = "0.26"
+leptos_verlet = "=1.2.2"
