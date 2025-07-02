@@ -1,9 +1,6 @@
 use leptos::prelude::*;
 use leptos_icons::Icon;
 use leptos_router::hooks::use_navigate;
-use leptos_verlet::prelude::*;
-
-use crate::components::id_card::SpawnIdCard;
 
 #[component]
 pub fn Home() -> impl IntoView {
@@ -63,15 +60,7 @@ pub fn Home() -> impl IntoView {
                 </div>
 
                 <div class="w-full aspect-[3/4]">
-                    <VerletConfigProvider
-                        simulation_settings=SimulationSettings{
-                            jerk_damping: 0.5,
-                            simulation_bounds: SimulationBounds::new(false, false, false),
-                            ..default()
-                        }
-                    />
-
-                    <SpawnIdCard/>
+                    <iframe class="m-0 p-0 w-full h-full bg-transparent" src="/badge_simulation" allowtransparency="true"/>
                 </div>
             </div>
             <div class="w-full h-[400px] bg-secondary-background"></div> // tertiary-background
