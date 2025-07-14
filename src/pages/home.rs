@@ -63,8 +63,10 @@ pub fn Home() -> impl IntoView {
                     <iframe class="m-0 p-0 w-full h-full bg-transparent" src="/badge_simulation" allowtransparency="true"/>
                 </div>
             </div>
-            <div class="w-full h-[400px] bg-secondary-background"></div> // tertiary-background
-            <div class="w-full h-[400px] bg-tertiary-background"></div>
+            <div class="w-full h-[400px] bg-secondary-background">
+            </div> // tertiary-background
+            <div class="w-full h-[400px] bg-tertiary-background">
+            </div>
         </div>
     }
 }

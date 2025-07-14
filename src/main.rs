@@ -1,12 +1,13 @@
 use leptos::prelude::*;
-mod app;
-mod badge;
+use thaw::{ConfigProvider, Theme};
+
 pub mod components;
 pub mod pages;
 
+mod app;
 use app::*;
+mod badge;
 use badge::*;
-use thaw::{ConfigProvider, Theme};
 
 pub fn main() {
     let theme = RwSignal::new(Theme::dark());
