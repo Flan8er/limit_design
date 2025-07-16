@@ -60,7 +60,7 @@ pub fn MainPage() -> impl IntoView {
                         on:click=navigate_home
                     >
                         <div class="bg-accent w-[10px] h-[10px]" />
-                        <h3 class="uppercase text-fluid-h3">"Casey Vaughn"</h3>
+                        <h3 class="uppercase">"Casey Vaughn"</h3>
                     </div>
 
                     <div class="max-md:hidden rounded-full px-6 py-3 absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 border flex items-center justify-center gap-12">
@@ -218,12 +218,13 @@ fn MainMargin1(#[prop(optional)] class: &'static str) -> impl IntoView {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
     }
 }
-#[component]
-fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
-    view! {
-        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
-    }
-}
+// #[component]
+// fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
+//     view! {
+//         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
+//     }
+// }
+
 #[component]
 fn AnimatedStripes() -> impl IntoView {
     view! {
