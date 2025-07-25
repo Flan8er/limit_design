@@ -8,7 +8,7 @@ use leptos_router::{
 };
 use thaw::{DrawerPosition, OverlayDrawer};
 
-use crate::pages::home::Home;
+use crate::pages::{home::Home, skills::SkillsPage};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -31,7 +31,7 @@ pub fn MainPageRoutes() -> impl MatchNestedRoutes + Clone {
             <Route path=path!("/about") view=|| view!{<div>About Me</div>} />
             <Route path=path!("/experiments") view=|| view!{<div>Experiments</div>} />
             <Route path=path!("/catalog") view=|| view!{<div>Catalog</div>} />
-            <Route path=path!("/skills") view=|| view!{<div>Skills</div>} />
+            <Route path=path!("/skills") view=|| SkillsPage />
         </ParentRoute>
     }
     .into_inner()
@@ -92,9 +92,10 @@ pub fn MainPage() -> impl IntoView {
                 <MainMargin1 class="left-0"/>
 
                 // Main content
-                <div class="w-full h-full relative z-0">
+                <div class="w-full relative z-0">
                     <AnimatedStripes/>
-                    <div class="w-full h-full z-[10] relative"> //
+
+                    <div class="w-full h-full z-[10] relative">
                         <Outlet/>
                     </div>
                 </div>
@@ -218,12 +219,12 @@ fn MainMargin1(#[prop(optional)] class: &'static str) -> impl IntoView {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
     }
 }
-// #[component]
-// fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
-//     view! {
-//         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
-//     }
-// }
+#[component]
+fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
+    view! {
+        <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
+    }
+}
 
 #[component]
 fn AnimatedStripes() -> impl IntoView {
