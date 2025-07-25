@@ -8,7 +8,7 @@ use crate::{
     },
     pages::skills::{
         JavaScriptSkillCard, LeptosSkillCard, PythonSkillCard, ReactSkillCard, RustSkillCard,
-        TypeScriptSkillCard,
+        SkillCardContainer, SkillSectionHeader, TypeScriptSkillCard,
     },
 };
 
@@ -76,38 +76,28 @@ pub fn Home() -> impl IntoView {
 
             <div class="w-full bg-tertiary-background py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4">
                 <div class="flex flex-col h-full justify-between gap-4">
-                    <div class="relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit">
-                        <div class="h-1.5 w-1.5 bg-secondary-text"></div>
-
-                        <h1 class="leading-none font-medium text-secondary-text">
-                            "Skills"
-                        </h1>
-
-                        <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
-                            "(14)"
-                        </div>
-                    </div>
+                    <SkillSectionHeader title="Skills" count=14/>
 
                     <h3 class="text-secondary-text">"Learning new technologies can bring an incredible improvemnt over traditional approaches to app development. I strive to learn as many approaches as possible to be able to deliver the best technology for your use case."</h3>
                 </div>
 
                 <div class="flex flex-col h-full w-full items-start gap-4">
-                    <div class="h-full w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4">
+                    <SkillCardContainer class="h-full">
                         <LeptosSkillCard/>
                         <JavaScriptSkillCard/>
                         <TypeScriptSkillCard/>
                         <ReactSkillCard/>
                         <RustSkillCard/>
                         <PythonSkillCard/>
-                    </div>
+                    </SkillCardContainer>
 
                     <AnimatedNavButton route="skills" title="See all skills"/>
                 </div>
             </div>
 
-            <div class="w-full h-[400px] bg-secondary-background relative">
-                <div class="absolute inset-0 grid-background bg-grid-20 border-none"/>
-            </div> // tertiary-background
+            <div class="w-full h-[400px] bg-secondary-background relative z-[0]">
+                <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
+            </div>
         </div>
     }
 }

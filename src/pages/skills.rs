@@ -3,94 +3,94 @@ use leptos_icons::Icon;
 use thaw::Divider;
 
 use crate::components::{
-    icons::{BevyIcon, LeptosIcon, PythonIcon},
+    icons::{BevyIcon, BlenderIcon, LeptosIcon, PythonIcon},
     ui::SkillCard,
 };
 
 #[component]
 pub fn SkillsPage() -> impl IntoView {
     view! {
-        // <div class="h-full min-h-full"/>
-        <div class="w-full h-full bg-tertiary-background py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4">
-            <div class="relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit h-fit">
-                <div class="h-1.5 w-1.5 bg-secondary-text"></div>
+        <div class="w-full h-full flex flex-col justify-between">
+            <div class="w-full py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4 bg-tertiary-background">
+                <SkillSectionHeader title="Front-end" count=5 class="h-fit"/>
 
-                <h1 class="leading-none font-medium text-secondary-text">
-                    "Front-end"
-                </h1>
+                <SkillCardContainer class="h-fit">
+                    <LeptosSkillCard/>
+                    <JavaScriptSkillCard/>
+                    <TypeScriptSkillCard/>
+                    <ReactSkillCard/>
+                    <TailwindSkillCard/>
+                </SkillCardContainer>
 
-                <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
-                    "(5)"
-                </div>
+                <Divider class="lg:col-span-2"/>
+
+                <SkillSectionHeader title="Systems" count=3 class="h-fit"/>
+
+                <SkillCardContainer class="h-fit">
+                    <PythonSkillCard/>
+                    <RustSkillCard/>
+                    <SwiftSkillCard/>
+                </SkillCardContainer>
+
+                <Divider class="lg:col-span-2"/>
+
+                <SkillSectionHeader title="Full-stack" count=3 class="h-fit"/>
+
+                <SkillCardContainer class="h-fit">
+                    <NextSkillCard/>
+                    <ElectronSkillCard/>
+                    <TauriSkillCard/>
+                </SkillCardContainer>
+
+                <Divider class="lg:col-span-2"/>
+
+                <SkillSectionHeader title="Graphics" count=3 class="h-fit"/>
+
+                <SkillCardContainer class="h-fit">
+                    <BevySkillCard/>
+                    <ThreeSkillCard/>
+                    <BlenderSkillCard/>
+                </SkillCardContainer>
             </div>
 
-            <div class="h-full w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4">
-                <LeptosSkillCard/>
-                <JavaScriptSkillCard/>
-                <TypeScriptSkillCard/>
-                <ReactSkillCard/>
-                <TailwindSkillCard/>
+            <div class="flex-grow bg-tertiary-background"/>
+
+            <div class="w-full h-[250px] bg-background relative z-[0]">
+                <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
             </div>
+        </div>
+    }
+}
 
-            <Divider class="lg:col-span-2"/>
+#[component]
+pub fn SkillSectionHeader(
+    title: &'static str,
+    count: i16,
+    #[prop(optional)] class: &'static str,
+) -> impl IntoView {
+    view! {
+        <div class=format!("relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit {}", class)>
+            <div class="h-1.5 w-1.5 bg-secondary-text"></div>
 
-            <div class="relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit h-fit">
-                <div class="h-1.5 w-1.5 bg-secondary-text"></div>
+            <h1 class="leading-none font-medium text-secondary-text">
+                {title}
+            </h1>
 
-                <h1 class="leading-none font-medium text-secondary-text">
-                    "Systems"
-                </h1>
-
-                <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
-                    "(3)"
-                </div>
+            <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
+                {format!("({})", count)}
             </div>
+        </div>
+    }
+}
 
-            <div class="h-full w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4">
-                <PythonSkillCard/>
-                <RustSkillCard/>
-                <SwiftSkillCard/>
-            </div>
-
-            <Divider class="lg:col-span-2"/>
-
-            <div class="relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit h-fit">
-                <div class="h-1.5 w-1.5 bg-secondary-text"></div>
-
-                <h1 class="leading-none font-medium text-secondary-text">
-                    "Full-stack"
-                </h1>
-
-                <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
-                    "(3)"
-                </div>
-            </div>
-
-            <div class="h-full w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4">
-                <NextSkillCard/>
-                <ElectronSkillCard/>
-                <TauriSkillCard/>
-            </div>
-
-            <Divider class="lg:col-span-2"/>
-
-            <div class="relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit h-fit">
-                <div class="h-1.5 w-1.5 bg-secondary-text"></div>
-
-                <h1 class="leading-none font-medium text-secondary-text">
-                    "Graphics"
-                </h1>
-
-                <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
-                    "(3)"
-                </div>
-            </div>
-
-            <div class="h-full w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4">
-                <BevySkillCard/>
-                <ThreeSkillCard/>
-                <BlenderSkillCard/>
-            </div>
+#[component]
+pub fn SkillCardContainer(
+    #[prop(optional)] class: &'static str,
+    children: Children,
+) -> impl IntoView {
+    view! {
+        <div class=format!("{} w-full grid grid-cols-1 lg:grid-cols-3 text-secondary-text gap-4", class)>
+            {children()}
         </div>
     }
 }
@@ -216,7 +216,7 @@ pub fn ThreeSkillCard() -> impl IntoView {
 pub fn BlenderSkillCard() -> impl IntoView {
     view! {
         <SkillCard title="Blender" description="An open-source 3D creation suite that supports modeling, animation, simulation, rendering, and video editing in a single unified environment.">
-            <Icon icon=icondata::BiBlender width="100%" height="100%" style="fill: black;"/>
+            <BlenderIcon/>
         </SkillCard>
     }
 }
