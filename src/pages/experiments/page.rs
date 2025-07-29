@@ -4,7 +4,7 @@ use leptos_router::{
     path, MatchNestedRoutes,
 };
 
-use crate::pages::experiments::home::page::ExperimentsHome;
+use crate::pages::experiments::{home::page::ExperimentsHome, robot::page::RobotExperiment};
 
 #[component(transparent)]
 pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
@@ -12,7 +12,7 @@ pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
         <ParentRoute path=path!("/experiments") view=ExperimentsPage>
             <Route path=path!("/") view=|| ExperimentsHome />
             <Route path=path!("/node-tree") view=|| view!{<div>node tree</div>} />
-            <Route path=path!("/robot-simulation") view=|| view!{<div>robot simulation</div>} />
+            <Route path=path!("/robot-simulation") view=|| RobotExperiment />
             <Route path=path!("/verlet-simulation") view=|| view!{<div>verlet simulation</div>} />
             <Route path=path!("/waveform") view=|| view!{<div>waveform</div>} />
             <Route path=path!("/reentry-simulation") view=|| view!{<div>reentry simulation</div>} />

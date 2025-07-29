@@ -9,6 +9,8 @@ use app::*;
 mod badge;
 use badge::*;
 
+use crate::pages::experiments::robot::page::RobotSimulation;
+
 pub fn main() {
     let theme = RwSignal::new(Theme::dark());
     console_error_panic_hook::set_once();
@@ -21,6 +23,12 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <BadgeSimulation/>
+            }
+        })
+    } else if path.contains("robot-simulation-frame") {
+        mount_to_body(move || {
+            view! {
+                <RobotSimulation/>
             }
         })
     } else {

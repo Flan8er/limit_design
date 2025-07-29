@@ -57,6 +57,7 @@ pub fn SkillsPage() -> impl IntoView {
 
             <div class="w-full h-[250px] bg-background relative z-[0]">
                 <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
+                <h3>"Check out some of the cool projects I've made with these skills!"</h3>
             </div>
         </div>
     }

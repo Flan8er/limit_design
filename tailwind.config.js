@@ -24,6 +24,7 @@ module.exports = {
       fontFamily: {
         sans: [
           "Inter",
+          "IBM Plex Mono",
           "GeistSans",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -37,9 +38,10 @@ module.exports = {
           "sans-serif",
         ],
         mono: [
+          "IBM Plex Mono",
+          "Menlo",
           "JetBrains Mono",
           "SFMono-Regular",
-          "Menlo",
           "Monaco",
           "Consolas",
           "Liberation Mono",
