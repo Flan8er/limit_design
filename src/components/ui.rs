@@ -33,18 +33,18 @@ pub fn AnimatedNavButton(
 ) -> impl IntoView {
     let navigate = use_navigate();
     let icon_style = RwSignal::new(String::from(
-        "transition-duration: 300ms; transform: rotate(-45deg);",
+        "transition-duration: 300ms; transform: rotate(-45deg); color: hsl(var(--secondary-text));",
     ));
 
     view! {
         <div
             class=format!("{} ml-auto bg-accent w-[175px] rounded-md hover:scale-[1.05] duration-300 p-4 hover:px-2 flex justify-between items-center cursor-default", class)
-            on:mouseenter=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(0deg);"))
-            on:mouseleave=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(-45deg);"))
+            on:mouseenter=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(0deg); color: hsl(var(--secondary-text));"))
+            on:mouseleave=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(-45deg); color: hsl(var(--secondary-text));"))
             on:click=move |_| navigate(&format!("/{}", route), Default::default())
         >
             <h3 class="text-secondary-text font-medium">{title}</h3>
-            <Icon icon=icondata::HiArrowSmallRightOutlineLg width="24px" height="24px"
+            <Icon icon=icondata::VsArrowRight width="22px" height="22px"
                 style=icon_style
             />
         </div>

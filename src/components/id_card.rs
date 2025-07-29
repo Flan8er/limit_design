@@ -12,7 +12,7 @@ pub fn SpawnIdCard() -> impl IntoView {
     const RECT_HEIGHT: f32 = 1.;
 
     const POINT_SIZE: f32 = 0.015;
-    const STICK_SIZE: f32 = 0.015;
+    const STICK_SIZE: f32 = 0.115;
 
     // Mesh & Materials
     let point_mesh = MeshType::Sphere;
@@ -45,7 +45,7 @@ pub fn SpawnIdCard() -> impl IntoView {
     let centroid: Vec3 = (top_right + bottom_left + bottom_right) / 3.;
 
     model_loader_with_options(
-        "/static/id_badge.glb",
+        "/assets/id_badge.glb",
         "id_badge.glb",
         0,
         Some(Vec3::new(0., centroid.y * 3. / 2. + 0.05, 0.)),
@@ -58,7 +58,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             let n = conns.len();
             let custom_material = match rope_material.clone() {
                 MaterialType::Color(mut color) => {
-                    color[3] = 1.0;
+                    color[3] = 0.0;
                     MaterialType::Color(color)
                 }
             };
@@ -73,7 +73,7 @@ pub fn SpawnIdCard() -> impl IntoView {
                 connection_size: Some(vec![STICK_SIZE; n]),
                 attachment,
                 point_scale: Vec3::new(1., 1., 1.),
-                connection_scale: Some(vec![Vec3::new(1., 1., 1.); n]),
+                connection_scale: Some(vec![Vec3::new(1., 1., 0.1); n]),
             }
         };
     let make_badge = |pos: Vec3,
@@ -100,12 +100,17 @@ pub fn SpawnIdCard() -> impl IntoView {
     };
 
     let mesh_network = vec![
-        make_rope(rope_1, rope_1, vec![rope_2], true, None),
-        make_rope(rope_2, rope_2, vec![rope_1, rope_3], false, None),
-        make_rope(rope_3, rope_3, vec![rope_2, rope_4], false, None),
-        make_rope(rope_4, rope_4, vec![rope_3, rope_5], false, None),
-        make_rope(rope_5, rope_5, vec![rope_4, rope_6], false, None),
-        make_rope(rope_6, rope_6, vec![rope_5, top_center], false, None),
+        // make_rope(rope_1, rope_1, vec![rope_2], true, None),
+        // make_rope(rope_2, rope_2, vec![rope_1, rope_3], false, None),
+        // make_rope(rope_3, rope_3, vec![rope_2, rope_4], false, None),
+        // make_rope(rope_4, rope_4, vec![rope_3, rope_5], false, None),
+        // make_rope(rope_5, rope_5, vec![rope_4, rope_6], false, None),
+        // make_rope(rope_6, rope_6, vec![rope_5, top_center], false, None),
+
+        // Making the rope only have 3 connections of a wider rope width
+        make_rope(rope_1, rope_1, vec![rope_3], true, None),
+        make_rope(rope_3, rope_3, vec![rope_1, rope_5], false, None),
+        make_rope(rope_5, rope_5, vec![rope_3, top_center], false, None),
         make_badge(
             top_center,
             top_center,
