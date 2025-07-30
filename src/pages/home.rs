@@ -3,6 +3,7 @@ use leptos_icons::Icon;
 
 use crate::{
     components::{
+        contact::ContactSection,
         icons::LeptosIcon,
         ui::{AnimatedNavButton, IconContainer},
     },
@@ -74,7 +75,7 @@ pub fn Home() -> impl IntoView {
                 </div>
             </div>
 
-            <div class="w-full bg-tertiary-background py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4">
+            <div class="w-full bg-secondary-background py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4">
                 <div class="flex flex-col h-full justify-between gap-4">
                     <SkillSectionHeader title="Skills" count=14/>
 
@@ -95,9 +96,7 @@ pub fn Home() -> impl IntoView {
                 </div>
             </div>
 
-            <div class="w-full h-[400px] bg-secondary-background relative z-[0]">
-                <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
-            </div>
+            <ContactSection/>
         </div>
     }
 }

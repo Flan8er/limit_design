@@ -34,11 +34,11 @@ pub fn ExperimentsHome() -> impl IntoView {
 
     view! {
         <div class="w-full h-full flex flex-col">
-            <div class="flex items-center gap-x-3.5 text-[24px] md:text-[32px] py-8 px-4 w-full relative z-[0] h-fit md:h-[250px]">
+            <div class="flex items-center gap-x-3.5 py-8 px-4 w-full relative z-[0] h-fit md:h-[250px]">
                 <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
 
                 <div class="h-1.5 w-1.5 bg-accent"></div>
-                <h1 class="leading-none font-medium text-primary-text">
+                <h1 class="leading-none font-medium text-primary-text text-[24px] md:text-[32px]">
                     "Experiments"
                 </h1>
             </div>

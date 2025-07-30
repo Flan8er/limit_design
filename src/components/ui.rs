@@ -50,6 +50,32 @@ pub fn AnimatedNavButton(
         </div>
     }
 }
+#[component]
+pub fn AnimatedLinkButton(
+    link: &'static str,
+    title: &'static str,
+    #[prop(optional)] class: &'static str,
+) -> impl IntoView {
+    let icon_style = RwSignal::new(String::from(
+        "transition-duration: 300ms; transform: rotate(-45deg); color: hsl(var(--secondary-text));",
+    ));
+
+    view! {
+        <a
+            class=format!("{} ml-auto bg-accent w-[175px] rounded-md hover:scale-[1.05] duration-300 p-4 hover:px-2 flex justify-between items-center cursor-default", class)
+            on:mouseenter=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(0deg); color: hsl(var(--secondary-text));"))
+            on:mouseleave=move |_| icon_style.set(String::from("transition-duration: 300ms; transform: rotate(-45deg); color: hsl(var(--secondary-text));"))
+            href=link
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            <h3 class="text-secondary-text font-medium">{title}</h3>
+            <Icon icon=icondata::VsArrowRight width="22px" height="22px"
+                style=icon_style
+            />
+        </a>
+    }
+}
 
 #[component]
 pub fn IconContainer(children: Children, link: &'static str) -> impl IntoView {

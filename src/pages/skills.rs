@@ -3,8 +3,9 @@ use leptos_icons::Icon;
 use thaw::Divider;
 
 use crate::components::{
+    contact::ContactSection,
     icons::{BevyIcon, BlenderIcon, LeptosIcon, PythonIcon},
-    ui::SkillCard,
+    ui::{AnimatedNavButton, SkillCard},
 };
 
 #[component]
@@ -55,10 +56,7 @@ pub fn SkillsPage() -> impl IntoView {
 
             <div class="flex-grow bg-tertiary-background"/>
 
-            <div class="w-full h-[250px] bg-background relative z-[0]">
-                <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
-                <h3>"Check out some of the cool projects I've made with these skills!"</h3>
-            </div>
+            <ContactSection/>
         </div>
     }
 }
@@ -70,10 +68,10 @@ pub fn SkillSectionHeader(
     #[prop(optional)] class: &'static str,
 ) -> impl IntoView {
     view! {
-        <div class=format!("relative inline-flex items-center gap-x-3.5 pr-1 text-[24px] md:text-[32px] w-fit {}", class)>
+        <div class=format!("relative inline-flex items-center gap-x-3.5 pr-1 w-fit {}", class)>
             <div class="h-1.5 w-1.5 bg-secondary-text"></div>
 
-            <h1 class="leading-none font-medium text-secondary-text">
+            <h1 class="leading-none font-medium text-secondary-text text-[24px] md:text-[32px]">
                 {title}
             </h1>
 

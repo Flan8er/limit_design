@@ -84,9 +84,9 @@ pub fn RobotExperiment() -> impl IntoView {
     Effect::new(move |_| show_dev_tools(&dev_tool_input.get()));
 
     view! {
-        <ExpandedView>
+        <ExpandedView title="6-Axis Robot Arm">
             <div class="w-full h-full relative z-[0]">
-                <div class="z-[10] absolute top-4 right-4 gap-4 flex flex-col items-end text-primary-text">
+                <div class="invisible md:visible z-[10] absolute top-4 right-4 gap-4 flex flex-col items-end text-primary-text">
                     <div class="flex items-center gap-4">
                         <h3 class="font-mono">{move || j1.get()}</h3>
                         <Slider value=j1 max=359.9/>
