@@ -75,7 +75,7 @@ pub fn SkillSectionHeader(
                 {title}
             </h1>
 
-            <div class="absolute right-0 top-[-0.25em] translate-x-full text-[0.5em] text-secondary-text">
+            <div class="absolute right-0 top-[-0.25em] translate-x-full text-[1em] text-secondary-text">
                 {format!("({})", count)}
             </div>
         </div>

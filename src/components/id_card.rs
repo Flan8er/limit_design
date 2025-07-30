@@ -4,6 +4,29 @@ use leptos_verlet::prelude::*;
 use web_sys::wasm_bindgen::JsCast;
 
 #[component]
+pub fn BadgeSimulation() -> impl IntoView {
+    match window().document().unwrap().body() {
+        Some(body) => {
+            let _ = body.style().set_property("background", "none transparent");
+        }
+        None => (),
+    };
+    view! {
+        <div class="w-full h-full">
+            <VerletConfigProvider
+                simulation_settings=SimulationSettings{
+                    jerk_damping: 0.5,
+                    simulation_bounds: SimulationBounds::new(false, false, false),
+                    ..default()
+                }
+            />
+
+            <SpawnIdCard/>
+        </div>
+    }
+}
+
+#[component]
 pub fn SpawnIdCard() -> impl IntoView {
     let simulation_container = NodeRef::<Div>::new();
     let spawn_request = expect_context::<SpawnSender>();
@@ -116,7 +139,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             top_center,
             vec![top_left, top_right, rope_6],
             false,
-            0.0,
+            -0.1,
             None,
             Vec3::ZERO,
         ),
@@ -125,7 +148,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             top_right,
             vec![top_center, bottom_right, bottom_left, top_left],
             false,
-            0.0,
+            -0.1,
             Some(String::from("id_badge.glb")),
             Vec3::new(0.1, 0., 0.),
         ),
@@ -134,7 +157,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             top_left,
             vec![top_center, bottom_left, bottom_right, top_right],
             false,
-            0.0,
+            -0.1,
             None,
             Vec3::new(-0.1, 0., 0.),
         ),
@@ -143,7 +166,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             bottom_left,
             vec![top_right, top_left, bottom_right],
             false,
-            0.0,
+            -0.1,
             Some(String::from("id_badge.glb")),
             Vec3::new(-0.1, 0., 0.),
         ),
@@ -152,7 +175,7 @@ pub fn SpawnIdCard() -> impl IntoView {
             bottom_right,
             vec![top_right, top_left, bottom_left],
             false,
-            0.0,
+            -0.1,
             Some(String::from("id_badge.glb")),
             Vec3::new(0.1, 0., 0.),
         ),

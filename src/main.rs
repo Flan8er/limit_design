@@ -6,11 +6,10 @@ pub mod pages;
 
 mod app;
 use app::*;
-mod badge;
-use badge::*;
 
-use crate::pages::experiments::{
-    node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation,
+use crate::{
+    components::id_card::BadgeSimulation,
+    pages::experiments::{node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation},
 };
 
 pub fn main() {
