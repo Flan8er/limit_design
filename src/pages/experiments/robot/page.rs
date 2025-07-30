@@ -14,15 +14,15 @@ use crate::pages::experiments::{
 
 #[component]
 pub fn RobotSimulation() -> impl IntoView {
-    match window().document() {
-        Some(window) => match window.body() {
-            Some(body) => {
-                let _ = body.style().set_property("background", "none transparent");
-            }
-            None => (),
-        },
-        None => (),
-    };
+    // match window().document() {
+    //     Some(window) => match window.body() {
+    //         Some(body) => {
+    //             let _ = body.style().set_property("background", "none transparent");
+    //         }
+    //         None => (),
+    //     },
+    //     None => (),
+    // };
 
     let UseBroadcastChannelReturn { message, .. } =
         use_broadcast_channel::<JointAngles, JsonSerdeCodec>("joint-angle-channel");

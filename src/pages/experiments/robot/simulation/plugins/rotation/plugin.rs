@@ -31,11 +31,10 @@ fn update_joint_angles(
     mut xform_q: Query<&mut Transform>,
 ) {
     for evt in events.read() {
-        let children = robot_children
-            .single()
-            .iter()
-            .cloned()
-            .collect::<Vec<Entity>>();
+        let children = match robot_children.single() {
+            Ok(children) => children.iter().collect::<Vec<Entity>>(),
+            Err(_) => return,
+        };
 
         // map each into (chain_index, Entity), skipping Base entirely
         let mut list: Vec<(usize, Entity)> = children

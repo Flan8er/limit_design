@@ -25,6 +25,7 @@ pub fn spawn_camera(mut commands: Commands) {
     commands.insert_resource(AmbientLight {
         color: Color::WHITE,
         brightness: 300.,
+        ..default()
     });
 
     commands.spawn((

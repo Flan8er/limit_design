@@ -20,6 +20,7 @@ impl Plugin for DebugPlugin {
                     },
                     text_color: Color::WHITE,
                     enabled: false,
+                    ..default()
                 },
             })
             .add_systems(

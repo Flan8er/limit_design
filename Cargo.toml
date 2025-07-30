@@ -5,25 +5,31 @@ edition = "2021"
 
 [dependencies]
 console_error_panic_hook = "0.1.7"
-leptos = { version = "0.7", features = ["csr"] }
-leptos_meta = { version = "0.7" }
-leptos_router = { version = "0.7" }
-thaw = "=0.4.7"
-codee = "0.3.2"
-serde = "1.0.219"
+leptos = { version = "0.8", features = ["csr"] }
+leptos_meta = { version = "0.8" }
+leptos_router = { version = "0.8" }
+thaw = "=0.5.0-beta"
+thaw_utils = "=0.2.0-beta"
+# thaw = "=0.4.7"
+# thaw = { git = "https://github.com/thaw-ui/thaw", branch = "thaw/v0.5", package = "thaw" }
+# thaw_utils = { git = "https://github.com/thaw-ui/thaw", branch = "thaw/v0.5", package = "thaw_utils" }
+leptos_icons = { version = "0.7" }
+icondata = { version = "0.5" }                                    # https://carloskiki.github.io/icondata/
+leptos-use = { version = "0.16", features = ["use_window_size"] }
 
 getrandom = { version = "0.3", features = ["wasm_js"] }
-bevy = { version = "0.15" }
-bevy_dev_tools = "0.15"
-leptos-bevy-canvas = "0.2.0"
-bevy_panorbit_camera = "0.21.1"
+bevy = { version = "0.16" }
+bevy_dev_tools = "0.16"
+leptos-bevy-canvas = "0.3.0"
+bevy_panorbit_camera = "=0.27.1"
+bevy_light_2d = "0.7.0"
 
-leptos_icons = { version = "0.5" }
-icondata = { version = "0.5" }                                      # https://carloskiki.github.io/icondata/
-leptos-use = { version = "0.15.7", features = ["use_window_size"] }
+codee = "0.3.2"
+serde = "1.0.219"
+serde_json = "1.0.140"
 web-sys = { version = "0.3" }
 strum = "0.26"
 strum_macros = "0.26"
+rand = "0.9.1"
 
-leptos_verlet = "=1.2.4"
-# leptos_verlet = { path = "../crates/leptos_verlet/leptos_verlet" }
+leptos_verlet = "2.0"

@@ -38,6 +38,7 @@ fn setup_ui(mut commands: Commands) {
     commands.insert_resource(AmbientLight {
         color: Color::WHITE,
         brightness: 2000.,
+        ..default()
     });
 }
 

@@ -9,7 +9,9 @@ use app::*;
 mod badge;
 use badge::*;
 
-use crate::pages::experiments::robot::page::RobotSimulation;
+use crate::pages::experiments::{
+    node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation,
+};
 
 pub fn main() {
     let theme = RwSignal::new(Theme::dark());
@@ -29,6 +31,12 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <RobotSimulation/>
+            }
+        })
+    } else if path.contains("node-tree-frame") {
+        mount_to_body(move || {
+            view! {
+                <TreeRouter/>
             }
         })
     } else {

@@ -6,7 +6,10 @@ use leptos_router::{
 
 use crate::{
     components::contact::ContactSection,
-    pages::experiments::{home::page::ExperimentsHome, robot::page::RobotExperiment},
+    pages::experiments::{
+        home::page::ExperimentsHome, node_tree::page::NodeTreeExperiment,
+        robot::page::RobotExperiment,
+    },
 };
 
 #[component(transparent)]
@@ -14,7 +17,7 @@ pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
     view! {
         <ParentRoute path=path!("/experiments") view=ExperimentsPage>
             <Route path=path!("/") view=|| ExperimentsHome />
-            <Route path=path!("/node-tree") view=|| view!{<div>node tree</div>} />
+            <Route path=path!("/node-tree") view=|| NodeTreeExperiment />
             <Route path=path!("/robot-simulation") view=|| RobotExperiment />
             <Route path=path!("/verlet-simulation") view=|| view!{<div>verlet simulation</div>} />
             <Route path=path!("/waveform") view=|| view!{<div>waveform</div>} />
@@ -35,7 +38,12 @@ pub fn ExperimentsPage() -> impl IntoView {
 }
 
 #[component]
-pub fn ExpandedView(title: &'static str, children: Children) -> impl IntoView {
+pub fn ExpandedView(
+    title: &'static str,
+    children: Children,
+    #[prop(optional)] description: &'static str,
+    #[prop(optional)] description_class: &'static str,
+) -> impl IntoView {
     view! {
         <div class="flex flex-col w-full h-full z-[0] items-center">
             <div class="absolute inset-0 grid-background bg-grid-20 border-none z-[-1]"/>
@@ -50,10 +58,12 @@ pub fn ExpandedView(title: &'static str, children: Children) -> impl IntoView {
                         </h1>
                     </div>
 
+                    <h3 class=format!("text-primary-text-muted {}", description_class)>{description}</h3>
+
                     <h3 class="text-primary-text-muted visible md:invisible">"For the best experience, view on desktop."</h3>
                 </div>
 
-                <div class="aspect-[16/9] w-full rounded bg-black object-cover">
+                <div class="aspect-[16/9] w-full rounded object-cover">
                     {children()}
                 </div>
             </div>
