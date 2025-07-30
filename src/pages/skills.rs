@@ -5,7 +5,7 @@ use thaw::Divider;
 use crate::components::{
     contact::ContactSection,
     icons::{BevyIcon, BlenderIcon, LeptosIcon, PythonIcon},
-    ui::{AnimatedNavButton, SkillCard},
+    ui::SkillCard,
 };
 
 #[component]

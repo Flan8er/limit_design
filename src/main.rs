@@ -9,7 +9,10 @@ use app::*;
 
 use crate::{
     components::id_card::BadgeSimulation,
-    pages::experiments::{node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation},
+    pages::experiments::{
+        node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation,
+        waveform::page::WaveformFrame,
+    },
 };
 
 pub fn main() {
@@ -36,6 +39,12 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <TreeRouter/>
+            }
+        })
+    } else if path.contains("waveform-frame") {
+        mount_to_body(move || {
+            view! {
+                <WaveformFrame/>
             }
         })
     } else {
