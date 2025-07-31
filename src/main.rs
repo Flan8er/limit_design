@@ -10,8 +10,9 @@ use app::*;
 use crate::{
     components::id_card::BadgeSimulation,
     pages::experiments::{
-        node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation,
-        verlet::page::VerletFrame, waveform::page::WaveformFrame,
+        galaga::page::GalagaFrame, node_tree::canvas::page::TreeRouter,
+        reentry::page::ReentryFrame, robot::page::RobotFrame, verlet::page::VerletFrame,
+        waveform::page::WaveformFrame,
     },
 };
 
@@ -32,7 +33,7 @@ pub fn main() {
     } else if path.contains("robot-simulation-frame") {
         mount_to_body(move || {
             view! {
-                <RobotSimulation/>
+                <RobotFrame/>
             }
         })
     } else if path.contains("node-tree-frame") {
@@ -51,6 +52,18 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <VerletFrame/>
+            }
+        })
+    } else if path.contains("reentry-frame") {
+        mount_to_body(move || {
+            view! {
+                <ReentryFrame/>
+            }
+        })
+    } else if path.contains("galaga-frame") {
+        mount_to_body(move || {
+            view! {
+                <GalagaFrame/>
             }
         })
     } else {

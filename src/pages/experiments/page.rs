@@ -7,7 +7,8 @@ use leptos_router::{
 use crate::{
     components::contact::ContactSection,
     pages::experiments::{
-        home::page::ExperimentsHome, node_tree::page::NodeTreeExperiment,
+        galaga::page::GalagaExperiment, home::page::ExperimentsHome,
+        node_tree::page::NodeTreeExperiment, reentry::page::ReentryExperiment,
         robot::page::RobotExperiment, verlet::page::VerletExperiment,
         waveform::page::WaveformExperiment,
     },
@@ -22,8 +23,8 @@ pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
             <Route path=path!("/robot-simulation") view=|| RobotExperiment />
             <Route path=path!("/verlet-simulation") view=|| VerletExperiment />
             <Route path=path!("/waveform") view=|| WaveformExperiment />
-            <Route path=path!("/reentry-simulation") view=|| view!{<div>reentry simulation</div>} />
-            <Route path=path!("/galaga") view=|| view!{<div>galaga</div>} />
+            <Route path=path!("/reentry-simulation") view=|| ReentryExperiment />
+            <Route path=path!("/galaga") view=|| GalagaExperiment />
         </ParentRoute>
     }
     .into_inner()

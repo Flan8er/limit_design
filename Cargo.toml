@@ -23,6 +23,7 @@ bevy_dev_tools = "0.16"
 leptos-bevy-canvas = "0.3.0"
 bevy_panorbit_camera = "=0.27.1"
 bevy_light_2d = "0.7.0"
+bevy_third_person_camera = "=0.3.0"
 
 codee = "0.3.2"
 serde = "1.0.219"

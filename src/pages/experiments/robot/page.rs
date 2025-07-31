@@ -13,7 +13,7 @@ use crate::pages::experiments::{
 };
 
 #[component]
-pub fn RobotSimulation() -> impl IntoView {
+pub fn RobotFrame() -> impl IntoView {
     // match window().document() {
     //     Some(window) => match window.body() {
     //         Some(body) => {
@@ -88,32 +88,32 @@ pub fn RobotExperiment() -> impl IntoView {
             <div class="w-full h-full relative z-[0]">
                 <div class="invisible md:visible z-[10] absolute top-4 right-4 gap-4 flex flex-col items-end text-primary-text">
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j1.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j1.get())}</h3>
                         <Slider value=j1 max=359.9/>
                         <h2 class="font-mono">"J1"</h2>
                     </div>
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j2.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j2.get())}</h3>
                         <Slider value=j2 min=-180.0 max=180.0/>
                         <h2 class="font-mono">"J2"</h2>
                     </div>
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j3.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j3.get())}</h3>
                         <Slider value=j3 max=359.9/>
                         <h2 class="font-mono">"J3"</h2>
                     </div>
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j4.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j4.get())}</h3>
                         <Slider value=j4 max=359.9/>
                         <h2 class="font-mono">"J4"</h2>
                     </div>
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j5.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j5.get())}</h3>
                         <Slider value=j5 max=359.9/>
                         <h2 class="font-mono">"J5"</h2>
                     </div>
                     <div class="flex items-center gap-4">
-                        <h3 class="font-mono">{move || j6.get()}</h3>
+                        <h3 class="font-mono">{move || format!("{:.0}", j6.get())}</h3>
                         <Slider value=j6 max=359.9/>
                         <h2 class="">"J6"</h2>
                     </div>

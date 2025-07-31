@@ -1283,6 +1283,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bevy_third_person_camera"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8d651221bb8bb1c32e2cc5a557db61353f31a6a77fdcef96c17d5a5c165b06a2"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "bevy_time"
 version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3796,6 +3805,7 @@ dependencies = [
  "bevy_dev_tools",
  "bevy_light_2d",
  "bevy_panorbit_camera",
+ "bevy_third_person_camera",
  "codee",
  "console_error_panic_hook",
  "getrandom 0.3.3",
