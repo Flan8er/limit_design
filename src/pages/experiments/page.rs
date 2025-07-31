@@ -8,7 +8,8 @@ use crate::{
     components::contact::ContactSection,
     pages::experiments::{
         home::page::ExperimentsHome, node_tree::page::NodeTreeExperiment,
-        robot::page::RobotExperiment, waveform::page::WaveformExperiment,
+        robot::page::RobotExperiment, verlet::page::VerletExperiment,
+        waveform::page::WaveformExperiment,
     },
 };
 
@@ -19,7 +20,7 @@ pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
             <Route path=path!("/") view=|| ExperimentsHome />
             <Route path=path!("/node-tree") view=|| NodeTreeExperiment />
             <Route path=path!("/robot-simulation") view=|| RobotExperiment />
-            <Route path=path!("/verlet-simulation") view=|| view!{<div>verlet simulation</div>} />
+            <Route path=path!("/verlet-simulation") view=|| VerletExperiment />
             <Route path=path!("/waveform") view=|| WaveformExperiment />
             <Route path=path!("/reentry-simulation") view=|| view!{<div>reentry simulation</div>} />
             <Route path=path!("/galaga") view=|| view!{<div>galaga</div>} />

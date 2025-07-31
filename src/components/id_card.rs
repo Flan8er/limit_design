@@ -45,9 +45,9 @@ pub fn SpawnIdCard() -> impl IntoView {
 
     // Define rope connections
     let rope_1 = Vec3::new(0.0, 3.5, 0.0);
-    let rope_2 = Vec3::new(0.0, 3.25, 0.0);
+    // let rope_2 = Vec3::new(0.0, 3.25, 0.0);
     let rope_3 = Vec3::new(0.0, 3., 0.0);
-    let rope_4 = Vec3::new(0.0, 2.75, 0.0);
+    // let rope_4 = Vec3::new(0.0, 2.75, 0.0);
     let rope_5 = Vec3::new(0.0, 2.5, 0.0);
     let rope_6 = Vec3::new(0.0, 2.25, 0.0);
 
@@ -271,7 +271,6 @@ pub fn MouseMonitor() -> impl IntoView {
                 }
             }
             on:mouseleave={
-                let release_action = release_action.clone();
                 move |ev| {
                 ev.prevent_default();
                 if let Some((x, y)) = target_mouse_position(&ev) {

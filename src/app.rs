@@ -224,6 +224,7 @@ fn MainMargin1(#[prop(optional)] class: &'static str) -> impl IntoView {
 fn MainMargin2(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current margin-background-2 h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
+        <div class=format!("w-[0px] bg-fixed h-[calc(100vh-50px)] md:h-[calc(100vh-75px)] sticky top-[50px] md:top-[75px] {}", class)/>
     }
 }
 

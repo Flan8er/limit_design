@@ -11,7 +11,7 @@ use crate::{
     components::id_card::BadgeSimulation,
     pages::experiments::{
         node_tree::canvas::page::TreeRouter, robot::page::RobotSimulation,
-        waveform::page::WaveformFrame,
+        verlet::page::VerletFrame, waveform::page::WaveformFrame,
     },
 };
 
@@ -45,6 +45,12 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <WaveformFrame/>
+            }
+        })
+    } else if path.contains("verlet-frame") {
+        mount_to_body(move || {
+            view! {
+                <VerletFrame/>
             }
         })
     } else {
