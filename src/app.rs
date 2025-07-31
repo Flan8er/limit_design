@@ -8,7 +8,9 @@ use leptos_router::{
 };
 use thaw::{DrawerPosition, OverlayDrawer};
 
-use crate::pages::{experiments::page::ExperimentRoutes, home::Home, skills::SkillsPage};
+use crate::pages::{
+    about::page::AboutPage, experiments::page::ExperimentRoutes, home::Home, skills::SkillsPage,
+};
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -28,7 +30,7 @@ pub fn MainPageRoutes() -> impl MatchNestedRoutes + Clone {
     view! {
         <ParentRoute path=path!("") view=MainPage>
             <Route path=path!("/") view=|| Home />
-            <Route path=path!("/about") view=|| view!{<div>About Me</div>} />
+            <Route path=path!("/about") view=|| AboutPage />
             <ExperimentRoutes/>
             <Route path=path!("/catalog") view=|| view!{<div>Catalog</div>} />
             <Route path=path!("/skills") view=|| SkillsPage />
