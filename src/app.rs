@@ -217,7 +217,7 @@ fn NavItem(name: &'static str, absolute_route: &'static str) -> impl IntoView {
 fn MainMargin1(#[prop(optional)] class: &'static str) -> impl IntoView {
     view! {
         <div class=format!("w-[40px] max-md:hidden text-border border-x border-x-current bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)] h-[calc(100vh-75px)] sticky top-[75px] {}", class)/>
-        <div class=format!("w-[0px] bg-fixed h-[calc(100vh-50px)] sticky top-[50px] {}", class)/>
+        <div class=format!("w-[0px] bg-fixed h-[calc(100vh-50px)] md:h-[calc(100vh-75px)] sticky top-[50px] md:top-[75px] {}", class)/>
     }
 }
 #[component]
