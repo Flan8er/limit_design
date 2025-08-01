@@ -64,7 +64,7 @@ pub fn Skills() -> impl IntoView {
         let initial_transforms = initial_transforms.clone();
         move |_| {
             let scroll_y = parent_scroll.get();
-            let Some(progress) = compute_scroll_animation_progress(&el, scroll_y, 0.3, 0.9) else {
+            let Some(progress) = compute_scroll_animation_progress(&el, scroll_y, 0.2, 0.75) else {
                 return;
             };
 
@@ -85,7 +85,7 @@ pub fn Skills() -> impl IntoView {
 
     view! {
         <Page>
-            <div node_ref=el class="w-full h-full flex items-center justify-center bg-gradient-to-b from-[rgba(183,45,177,0.1)] to-pink-600/10">
+            <div node_ref=el class="w-full h-full flex items-center justify-center bg-gradient-to-b from-[rgba(183,45,177,0.1)] to-pink-600/10 py-6">
                 <div class="max-w-4xl px-8 z-10">
                     <h2 class="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
                         "Skills & Technologies"
@@ -102,7 +102,7 @@ pub fn Skills() -> impl IntoView {
                                 );
                                 view! {
                                     <div style=transform_style class="bg-white/5 backdrop-blur-sm rounded-lg p-4 text-center border border-white/10">
-                                        <span class="text-white font-medium">{name}</span>
+                                        <span class="text-primary-text font-medium">{name}</span>
                                     </div>
                                 }
                             }

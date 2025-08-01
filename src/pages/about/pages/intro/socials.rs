@@ -1,6 +1,5 @@
-use leptos::prelude::{set_timeout, *};
+use leptos::prelude::*;
 use leptos_icons::Icon;
-use web_sys::window;
 
 const EMAIL: &str = "casey.vaughn9@aol.com";
 
@@ -16,25 +15,6 @@ pub fn SocialIcons() -> impl IntoView {
             }
         }
     });
-
-    let copy_email = move |_| {
-        // Attempt to copy to clipboard
-        match window() {
-            Some(window) => {
-                let _ = window.navigator().clipboard().write_text(EMAIL);
-            }
-            None => return,
-        };
-
-        // Alert success if copy command didn't fail
-        copy_success.set(true);
-
-        // Reset success message after a delay
-        set_timeout(
-            move || copy_success.set(false),
-            std::time::Duration::from_millis(500),
-        );
-    };
 
     view! {
         <span class="socials flex gap-6 mt-4">
@@ -56,12 +36,12 @@ pub fn SocialIcons() -> impl IntoView {
                 <Icon icon=icondata::FiLinkedin width="24px" height="24px" style="transition: color 0.2s ease;" />
             </a>
 
-            <button
+            <a
+                href="mailto:info@example.com"
                 class="social-button p-2 hover:scale-110 transition origin-center"
-                on:click=copy_email
             >
                 <Icon icon=icondata::LuMail width="24px" height="24px" style=icon_style />
-            </button>
+            </a>
         </span>
     }
 }

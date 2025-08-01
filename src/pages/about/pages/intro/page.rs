@@ -10,13 +10,13 @@ pub fn Intro() -> impl IntoView {
     view! {
         <Page>
             <div
-                class="w-full h-full flex flex-col items-center justify-start relative pt-12"
+                class="w-full h-full flex flex-col items-center justify-start relative pt-12 text-primary-text"
             >
                 // <BevyWaveform/>
 
-                <h1 class="text-6xl md:text-8xl font-bold">"Casey Vaughn"</h1>
+                <h1 class="text-[calc(clamp(40px,4vw,72px))] font-bold">"Casey Vaughn"</h1>
 
-                <p class="text-xl md:text-2xl text-gray-300 mt-8">"Full Stack Developer & UI/UX Designer"</p>
+                <p class="text-xl md:text-2xl text-primary-text-muted mt-8">"Full Stack Developer & UI/UX Designer"</p>
 
                 <SocialIcons/>
 

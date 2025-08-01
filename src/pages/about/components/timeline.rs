@@ -1,18 +1,21 @@
 use leptos::prelude::*;
 use strum_macros::EnumIter;
 
-use crate::pages::about::pages::{
-    about::page::AboutMe,
-    appendix::page::Appendix,
-    intro::page::Intro,
-    skills::page::Skills,
-    timeline::{
-        twenty_five::TwentyTwentyFive, twenty_four::TwentyTwentyFour,
-        twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo,
+use crate::pages::about::{
+    components::page::Page,
+    pages::{
+        about::page::AboutMe,
+        appendix::page::Appendix,
+        intro::page::Intro,
+        skills::page::Skills,
+        timeline::{
+            twenty_five::TwentyTwentyFive, twenty_four::TwentyTwentyFour,
+            twenty_three::TwentyTwentyThree, twenty_two::TwentyTwentyTwo,
+        },
     },
 };
 
-#[derive(EnumIter, Clone, Copy, PartialEq, Eq, Default)]
+#[derive(EnumIter, Clone, Copy, PartialEq, Eq, Default, Hash)]
 pub enum Timeline {
     #[default]
     Intro,

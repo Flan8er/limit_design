@@ -15,7 +15,7 @@ pub fn Timeline() -> impl IntoView {
     let UseWindowSizeReturn { width, height } = use_window_size();
 
     view! {
-        <div class="fixed top-0 left-0 h-screen w-20 flex flex-col items-center justify-center z-[100] max-md:hidden">
+        <div class="fixed top-0 left-4 h-screen w-20 flex flex-col items-center justify-center z-[100] max-md:hidden">
             <div class="w-1 h-[33.333%] bg-white/20 backdrop-blur-sm rounded-full relative shadow-md border border-white/30">
                 { move || {
                     let dot_height_px = 16.0;

@@ -9,13 +9,10 @@ use app::*;
 
 use crate::{
     components::id_card::BadgeSimulation,
-    pages::{
-        about::app::PortfolioFrame,
-        experiments::{
-            galaga::page::GalagaFrame, node_tree::canvas::page::TreeRouter,
-            reentry::page::ReentryFrame, robot::page::RobotFrame, verlet::page::VerletFrame,
-            waveform::page::WaveformFrame,
-        },
+    pages::experiments::{
+        galaga::page::GalagaFrame, node_tree::canvas::page::TreeRouter,
+        reentry::page::ReentryFrame, robot::page::RobotFrame, verlet::page::VerletFrame,
+        waveform::page::WaveformFrame,
     },
 };
 
@@ -67,12 +64,6 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <GalagaFrame/>
-            }
-        })
-    } else if path.contains("portfolio-frame") {
-        mount_to_body(move || {
-            view! {
-                <PortfolioFrame/>
             }
         })
     } else {

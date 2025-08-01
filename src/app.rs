@@ -30,10 +30,10 @@ pub fn MainPageRoutes() -> impl MatchNestedRoutes + Clone {
     view! {
         <ParentRoute path=path!("") view=MainPage>
             <Route path=path!("/") view=|| Home />
-            <Route path=path!("/about") view=|| AboutPage />
-            <ExperimentRoutes/>
             <Route path=path!("/catalog") view=|| view!{<div>Catalog</div>} />
+            <ExperimentRoutes/>
             <Route path=path!("/skills") view=|| SkillsPage />
+            <Route path=path!("/about") view=|| AboutPage />
         </ParentRoute>
     }
     .into_inner()
@@ -45,10 +45,10 @@ pub fn MainPage() -> impl IntoView {
     let navigate_home = move |_| navigate("/", Default::default());
 
     let nav_menu = vec![
-        ("About", "/about"),
-        ("Experiments", "/experiments"),
         ("Catalog", "/catalog"),
+        ("Experiments", "/experiments"),
         ("Skills", "/skills"),
+        ("About", "/about"),
     ];
 
     view! {
