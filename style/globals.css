@@ -246,6 +246,52 @@
         display: inline-block;
         animation: slide 35s linear infinite;
     }
+
+    #glow-cards:hover > .glow-card > .glow-card-border {
+        opacity: 1;
+    }
+    .glow-card {
+        background-color: hsl(186, 80%, 16%);
+        position: relative;
+    }
+    .glow-card:hover::before {
+        opacity: 1;
+    }
+    .glow-card::before,
+    .glow-card > .glow-card-border {
+        border-radius: inherit;
+        content: "";
+        position: absolute;
+        inset: 0px;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity 500ms;
+    }
+    .glow-card::before {
+        background: radial-gradient(
+            800px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.06),
+            transparent 40%
+        );
+        z-index: 3;
+    }
+    .glow-card > .glow-card-border {
+        background: radial-gradient(
+            400px circle at var(--mouse-x) var(--mouse-y),
+            rgba(255, 255, 255, 0.3),
+            transparent 40%
+        );
+        z-index: 1;
+    }
+    .glow-card > .glow-card-content {
+        background-color: hsl(188, 96%, 10%);
+        border-radius: inherit;
+        margin: 1px;
+        height: calc(100% - 2px);
+        width: calc(100% - 2px);
+        position: relative;
+        z-index: 2;
+    }
 }
 
 @keyframes animate {
