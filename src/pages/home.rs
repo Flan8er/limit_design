@@ -23,11 +23,11 @@ pub fn Home() -> impl IntoView {
 
                     <section>
                         <h1>
-                            <span class="text-accent leading-[1.2] text-[calc(clamp(40px,4vw,72px))]">"Fullstack web developer "</span>
+                            <span class="text-accent leading-[1.2] text-[calc(clamp(40px,4vw,72px))]">"Full-stack web developer "</span>
                             <span class="leading-[1.2] text-primary-text text-[calc(clamp(40px,4vw,72px))]">"and designer"</span>
                         </h1>
                         <h2 class="text-primary-text-muted leading-[1.2]">
-                            "Perusing my passion for combining design with functionality."
+                            "Perusing the beauty of combining design with functionality."
                         </h2>
                     </section>
 

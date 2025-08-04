@@ -1,9 +1,8 @@
-use leptos::prelude::*;
-
 use leptos::{html::Div, prelude::*};
 use leptos_use::use_window_scroll;
 use strum::IntoEnumIterator;
 
+#[allow(unused)]
 use crate::pages::about::{
     components::timeline::Timeline as TimelineEnum, pages::timeline::page::Timeline,
 };

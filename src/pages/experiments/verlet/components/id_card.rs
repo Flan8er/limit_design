@@ -41,7 +41,7 @@ pub fn SpawnIdCard(active_modifier: RwSignal<ModificationTarget>) -> impl IntoVi
     Effect::new(move |_| {
         if spawn_mesh.get() {
             model_loader_with_options(
-                "/static/test_card.glb",
+                "/assets/test_card.glb",
                 "test_card.glb",
                 0,
                 Some(Vec3::new(-centroid.y * 3. / 2., 0., 0.)),

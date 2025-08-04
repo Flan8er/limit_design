@@ -1,8 +1,6 @@
 use leptos::prelude::*;
 use leptos_icons::Icon;
 
-const EMAIL: &str = "casey.vaughn9@aol.com";
-
 #[component]
 pub fn SocialIcons() -> impl IntoView {
     let copy_success = RwSignal::new(false);
