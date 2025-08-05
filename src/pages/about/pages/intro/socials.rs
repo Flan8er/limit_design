@@ -35,7 +35,7 @@ pub fn SocialIcons() -> impl IntoView {
             </a>
 
             <a
-                href="mailto:info@example.com"
+                href="mailto:casey.vaughn9@aol.com"
                 class="social-button p-2 hover:scale-110 transition origin-center"
             >
                 <Icon icon=icondata::LuMail width="24px" height="24px" style=icon_style />

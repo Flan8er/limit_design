@@ -61,7 +61,7 @@ pub fn Home() -> impl IntoView {
                             <IconContainer link="https://linkedin.com/in/casey-vaughn-1a8ba72b2">
                                 <Icon icon=icondata::BiLinkedin width="100%" height="100%" style="fill: #0966C2;"/>
                             </IconContainer>
-                            <IconContainer link="mailto:info@example.com">
+                            <IconContainer link="mailto:casey.vaughn9@aol.com">
                                 <Icon icon=icondata::BiAtRegular width="100%" height="100%"/>
                             </IconContainer>
 

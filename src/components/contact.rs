@@ -11,7 +11,7 @@ pub fn ContactSection() -> impl IntoView {
             <h2>"Get in touch"</h2>
             <h3 class="mx-4 md:mx-0 md:w-[60%] md:max-w-[60%] lg:w-[30%] lg:max-w-[30%] text-center font-normal">"If you have a project idea that you want to bring to life, I can deliver a tailor-made, AI free, application suited perfectly to your needs."</h3>
 
-            <AnimatedLinkButton link="mailto:info@example.com" title="Get in touch" class="mr-auto"/>
+            <AnimatedLinkButton link="mailto:casey.vaughn9@aol.com" title="Get in touch" class="mr-auto"/>
         </div>
     }
 }
