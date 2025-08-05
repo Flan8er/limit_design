@@ -3,27 +3,40 @@ use crate::components::{
     icons::{BevyIcon, BlenderIcon, LeptosIcon},
 };
 use leptos::prelude::*;
+use leptos_icons::Icon;
 use web_sys::{wasm_bindgen::JsCast, HtmlElement};
 
 #[component]
 pub fn CatalogHome() -> impl IntoView {
-    let six_axis_icons = vec![
+    let reveal_icons = vec![
+        view! {<Icon icon=icondata::SiTauri width="100%" height="100%" style="fill: #696969;"/>}
+            .into_any(),
+        view! {<Icon icon=icondata::BiReact width="100%" height="100%" style="fill: #58C4DC;"/>}
+            .into_any(),
+        view! {<Icon icon=icondata::FaRustBrands width="100%" height="100%" style="fill: #696969;"/>}
+            .into_any(),
+    ];
+    let limitfab_icons = vec![
+        view! {<Icon icon=icondata::SiNextdotjs width="100%" height="100%"/>}.into_any(),
+        view! {<Icon icon=icondata::BiTailwindCss width="100%" height="100%" style="fill: #00BCFF;"/>}.into_any(),
+        view! {<BlenderIcon/>}.into_any()
+    ];
+    let meteorite_icons = vec![
         view! {<LeptosIcon/>}.into_any(),
+        view! {<BevyIcon/>}.into_any(),
         view! {<BlenderIcon/>}.into_any(),
-        view! {<BevyIcon/>}.into_any(),
     ];
-    let node_tree_icons = vec![
-        view! {<LeptosIcon/>}.into_any(),
-        view! {<BevyIcon/>}.into_any(),
+    let labelize_icons = vec![
+        view! {<Icon icon=icondata::SiNextdotjs width="100%" height="100%"/>}.into_any(),
+        view! {<Icon icon=icondata::BiTailwindCss width="100%" height="100%" style="fill: #00BCFF;"/>}.into_any(),
     ];
-    let verlet_icons = vec![
-        view! {<LeptosIcon/>}.into_any(),
-        view! {<BevyIcon/>}.into_any(),
-    ];
-    let waveform_icons = vec![
-        view! {<LeptosIcon/>}.into_any(),
-        view! {<BevyIcon/>}.into_any(),
-    ];
+
+    let reveal_description = "No-code editor for Reveal.js applications, useable as a standalone presentation client or to inject presentations into web apps.";
+    let limitfab_description =
+        "Designing and building custom, high-performance carbon fiber steering wheels.";
+    let meteorite_description =
+        "3D printing software for aerospace hardware and spaceflight-grade re-entry capsules.";
+    let labelize_description = "Tool for building layouts, text, barcodes, images, and shapes to be printed on a label maker.";
 
     view! {
         <div class="w-full h-full flex flex-col">
@@ -62,10 +75,10 @@ pub fn CatalogHome() -> impl IntoView {
                     }
                 }
             >
-                <CatalogCard title="Reveal" image="/static/RobotSimulationPreview.png" icons=six_axis_icons/>
-                <CatalogCard title="LimitFab" image="/static/NodeTreePreview.png" icons=node_tree_icons/>
-                <CatalogCard title="Meteorite" image="/static/VerletPreview.png" icons=verlet_icons/>
-                <CatalogCard title="Labelize" image="/static/WaveformPreview.png" icons=waveform_icons/>
+                <CatalogCard title="Reveal" image="/static/RevealPreview.png" icons=reveal_icons description=reveal_description/>
+                <CatalogCard title="LimitFab" image="/static/LimitFabPreview.png" icons=limitfab_icons description=limitfab_description/>
+                <CatalogCard title="Meteorite" image="/static/MeteoritePreview.png" icons=meteorite_icons description=meteorite_description/>
+                <CatalogCard title="Labelize" image="/static/LabelizePreview.png" icons=labelize_icons description=labelize_description/>
             </div>
 
             <div class="flex-grow"/>
@@ -76,7 +89,12 @@ pub fn CatalogHome() -> impl IntoView {
 }
 
 #[component]
-pub fn CatalogCard(title: &'static str, image: &'static str, icons: Vec<AnyView>) -> impl IntoView {
+pub fn CatalogCard(
+    title: &'static str,
+    image: &'static str,
+    icons: Vec<AnyView>,
+    description: &'static str,
+) -> impl IntoView {
     view! {
         <div
             class="w-full h-full rounded-lg glow-card"
@@ -84,7 +102,7 @@ pub fn CatalogCard(title: &'static str, image: &'static str, icons: Vec<AnyView>
             <div class="glow-card-border"/>
 
             <div class="flex flex-col glow-card-content">
-                <div class="flex flex-col w-full h-full p-3 gap-4">
+                <div class="flex flex-col w-full p-4 gap-4">
                     <h2 class="font-light">{title}</h2>
                     <div class="flex gap-2">
                         {icons.into_iter().map(|icon| view! {
@@ -105,10 +123,12 @@ pub fn CatalogCard(title: &'static str, image: &'static str, icons: Vec<AnyView>
                     height="1678"
                 />
 
+                // <div class="flex-grow"/>
+
                 <div
-                    class="w-full rounded-md p-4 gap-2 group-hover:gap-4 flex justify-center items-center cursor-default"
+                    class="w-full h-full rounded-md p-4 gap-2 flex justify-center items-center text-center"
                 >
-                    <h3 class="text-primary-text-muted font-light">"Discover this experiment"</h3>
+                    <h3 class="text-primary-text-muted font-light">{description}</h3>
                 </div>
             </div>
         </div>
