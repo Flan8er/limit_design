@@ -1,0 +1,55 @@
+name: Deploy dist/ to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write # for gh-pages branch
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.page_deploy.outputs.page_url }}
+
+    steps:
+      # 1) Checkout your repo (with the committed dist/ folder)
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      # 2) Copy index.html → 404.html inside dist/
+      - name: Generate SPA fallback (404.html)
+        run: |
+          # ensure dist exists
+          if [ ! -d dist ]; then
+            echo "❌ dist/ not found! Did you forget to commit it?" >&2
+            exit 1
+          fi
+          # copy
+          cp dist/index.html dist/404.html
+          echo "Copied dist/index.html → dist/404.html"
+
+      # 3) Configure GitHub Pages
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      # 4) Upload the dist/ folder (now including 404.html)
+      - name: Upload dist folder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      # 5) Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: page_deploy
+        uses: actions/deploy-pages@v4
