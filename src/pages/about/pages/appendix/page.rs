@@ -46,7 +46,7 @@ pub fn ThirdWall() -> impl IntoView {
             "This entire app was built in Leptos — if you like, feel free to checkout the source code "
 
             <a
-                href="https://github.com/Flan8er/portfolio"
+                href="https://github.com/Flan8er/limit_design"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-blue-500"
