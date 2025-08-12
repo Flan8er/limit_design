@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 
 use crate::pages::experiments::robot::simulation::plugins::setup::robot_spawner::{
-    JointAngles, Robot, RobotJoint,
+    JointAngles, Robot, RobotJoint, RobotSpawned,
 };
 
 #[derive(Resource, Default)]
@@ -29,7 +29,12 @@ fn update_joint_angles(
     robot_children: Query<&Children, With<Robot>>,
     joint_enum: Query<&RobotJoint>,
     mut xform_q: Query<&mut Transform>,
+    spawned: Res<RobotSpawned>,
 ) {
+    if !spawned.0 {
+        return;
+    }
+
     for evt in events.read() {
         let children = match robot_children.single() {
             Ok(children) => children.iter().collect::<Vec<Entity>>(),

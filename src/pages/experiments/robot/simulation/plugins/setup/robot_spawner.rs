@@ -50,7 +50,7 @@ impl RobotJoint {
 }
 
 #[derive(Resource, Default)]
-pub struct RobotSpawned(bool);
+pub struct RobotSpawned(pub bool);
 
 pub fn spawn_robot(
     mut commands: Commands,
