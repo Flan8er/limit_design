@@ -45,10 +45,10 @@ pub fn ExperimentsHome() -> impl IntoView {
 
             <div class="grid gap-x-4 gap-y-8 pb-8 px-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 <ExperimentCard title="6-Axis Robot Arm" route="/experiments/robot-simulation" image="/static/RobotSimulationPreview.png" icons=six_axis_icons/>
-                <ExperimentCard title="MQTT Node Tree Transmission" route="/experiments/node-tree" image="/static/NodeTreePreview.png" icons=node_tree_icons/>
-                <ExperimentCard title="Verlet Simulation Crate" route="/experiments/verlet-simulation" image="/static/VerletPreview.png" icons=verlet_icons/>
-                <ExperimentCard title="Waveform Animation" route="/experiments/waveform" image="/static/WaveformPreview.png" icons=waveform_icons/>
                 <ExperimentCard title="Reentry Capsule Simulation" route="/experiments/reentry-simulation" image="/static/ReentryPreview.png" icons=reentry_icons/>
+                <ExperimentCard title="Verlet Simulation Crate" route="/experiments/verlet-simulation" image="/static/VerletPreview.png" icons=verlet_icons/>
+                <ExperimentCard title="MQTT Node Tree Transmission" route="/experiments/node-tree" image="/static/NodeTreePreview.png" icons=node_tree_icons/>
+                <ExperimentCard title="Waveform Animation" route="/experiments/waveform" image="/static/WaveformPreview.png" icons=waveform_icons/>
                 <ExperimentCard title="Galaga" route="/experiments/galaga" image="/static/GalagaPreview.png" icons=galaga_icons/>
             </div>
         </div>

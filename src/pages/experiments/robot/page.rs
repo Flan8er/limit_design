@@ -14,16 +14,6 @@ use crate::pages::experiments::{
 
 #[component]
 pub fn RobotFrame() -> impl IntoView {
-    // match window().document() {
-    //     Some(window) => match window.body() {
-    //         Some(body) => {
-    //             let _ = body.style().set_property("background", "none transparent");
-    //         }
-    //         None => (),
-    //     },
-    //     None => (),
-    // };
-
     let UseBroadcastChannelReturn { message, .. } =
         use_broadcast_channel::<JointAngles, JsonSerdeCodec>("joint-angle-channel");
     let UseBroadcastChannelReturn {
@@ -84,7 +74,7 @@ pub fn RobotExperiment() -> impl IntoView {
     Effect::new(move |_| show_dev_tools(&dev_tool_input.get()));
 
     view! {
-        <ExpandedView title="6-Axis Robot Arm">
+        <ExpandedView title="6-Axis Robot Arm" description="Simulation for hardware-in-the-loop testing of a 6-axis robot arm.">
             <div class="w-full h-full relative z-[0]">
                 <div class="invisible md:visible z-[10] absolute top-4 right-4 gap-4 flex flex-col items-end text-primary-text">
                     <div class="flex items-center gap-4">

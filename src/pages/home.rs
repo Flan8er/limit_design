@@ -23,11 +23,11 @@ pub fn Home() -> impl IntoView {
 
                     <section>
                         <h1>
-                            <span class="text-accent leading-[1.2] text-[calc(clamp(40px,4vw,72px))]">"Full-stack web developer "</span>
-                            <span class="leading-[1.2] text-primary-text text-[calc(clamp(40px,4vw,72px))]">"and designer"</span>
+                            <span class="text-accent leading-[1.2] text-[calc(clamp(40px,4vw,72px))]">"Real-Time Simulation "</span>
+                            <span class="leading-[1.2] text-primary-text text-[calc(clamp(40px,4vw,72px))]">"and Dynamics Engineer"</span>
                         </h1>
                         <h2 class="text-primary-text-muted leading-[1.2]">
-                            "Perusing the beauty of combining design with functionality."
+                            "Specializing in real-time, high-fidelity simulations across varied application domains."
                         </h2>
                     </section>
 
@@ -76,10 +76,10 @@ pub fn Home() -> impl IntoView {
             </div>
 
             <div class="w-full bg-secondary-background py-8 px-4 grid grid-cols-1 lg:grid-cols-[2fr_4fr] gap-4">
-                <div class="flex flex-col h-full justify-between gap-4">
-                    <SkillSectionHeader title="Skills" count=14/>
+                <div class="flex flex-col h-full justify-start gap-4">
+                    <SkillSectionHeader title="Skills" count=16/>
 
-                    <h3 class="text-secondary-text">"Learning new technologies can bring an incredible improvemnt over traditional approaches to app development. I strive to learn as many approaches as possible to be able to deliver the best technology for your use case."</h3>
+                    <h3 class="text-secondary-text">"I aim to build meaningful systems that benefit society, with experience developing mission-critical software and hardware across a variety of technologies."</h3>
                 </div>
 
                 <div class="flex flex-col h-full w-full items-start gap-4">

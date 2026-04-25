@@ -9,7 +9,9 @@ use crate::pages::experiments::{
 #[component]
 pub fn ReentryExperiment() -> impl IntoView {
     view! {
-        <ExpandedView title="Reentry Capsule Simulation" description="A real-time simulation of SpaceX's V1 Starship reentry path.">
+        <ExpandedView title="Reentry Capsule Simulation"
+            description="A real-time physics simulation of SpaceX's Starship reentry. The system models atmospheric conditions and vehicle properties to dynamically compute trajectory."
+        >
             <iframe class="m-0 p-0 w-full h-full z-[0]" src="/reentry-frame"/>
         </ExpandedView>
     }

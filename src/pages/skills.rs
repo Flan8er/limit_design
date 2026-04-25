@@ -25,12 +25,14 @@ pub fn SkillsPage() -> impl IntoView {
 
                 <Divider class="lg:col-span-2"/>
 
-                <SkillSectionHeader title="Systems" count=3 class="h-fit"/>
+                <SkillSectionHeader title="Systems" count=5 class="h-fit"/>
 
                 <SkillCardContainer class="h-fit">
                     <PythonSkillCard/>
                     <RustSkillCard/>
                     <SwiftSkillCard/>
+                    <CppSkillCard/>
+                    <JavaSkillCard/>
                 </SkillCardContainer>
 
                 <Divider class="lg:col-span-2"/>
@@ -216,6 +218,24 @@ pub fn BlenderSkillCard() -> impl IntoView {
     view! {
         <SkillCard title="Blender" description="An open-source 3D creation suite that supports modeling, animation, simulation, rendering, and video editing in a single unified environment.">
             <BlenderIcon/>
+        </SkillCard>
+    }
+}
+
+#[component]
+pub fn CppSkillCard() -> impl IntoView {
+    view! {
+        <SkillCard title="C++" description="A systems programming language offering fine-grained control over memory and hardware, commonly used in high-performance and real-time applications.">
+            <Icon icon=icondata::BiCPlusPlus width="100%" height="100%" style="fill: black;"/>
+        </SkillCard>
+    }
+}
+
+#[component]
+pub fn JavaSkillCard() -> impl IntoView {
+    view! {
+        <SkillCard title="Java" description="A widely used, object-oriented programming language designed for portability, scalability, and enterprise-grade application development across platforms.">
+            <Icon icon=icondata::BiJava width="100%" height="100%" style="fill: black;"/>
         </SkillCard>
     }
 }
