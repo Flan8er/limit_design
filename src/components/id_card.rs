@@ -243,7 +243,7 @@ pub fn MouseMonitor() -> impl IntoView {
 
     view! {
         <div
-            class="absolute inset-0 z-[10] cursor-default"
+            class="absolute inset-0 z-[10] cursor-pointer"
             on:mousedown=move |ev| {
                 ev.prevent_default();
                 if let Some((x, y)) = target_mouse_position(&ev) {

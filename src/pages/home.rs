@@ -8,7 +8,7 @@ use crate::{
         ui::{AnimatedNavButton, IconContainer},
     },
     pages::skills::{
-        JavaScriptSkillCard, LeptosSkillCard, PythonSkillCard, ReactSkillCard, RustSkillCard,
+        CppSkillCard, JavaScriptSkillCard, LeptosSkillCard, PythonSkillCard, RustSkillCard,
         SkillCardContainer, SkillSectionHeader, TypeScriptSkillCard,
     },
 };
@@ -27,8 +27,12 @@ pub fn Home() -> impl IntoView {
                             <span class="leading-[1.2] text-primary-text text-[calc(clamp(40px,4vw,72px))]">"and Dynamics Engineer"</span>
                         </h1>
                         <h2 class="text-primary-text-muted leading-[1.2]">
-                            "Specializing in real-time, high-fidelity simulations across varied application domains."
+                            "Specializing in real-time physics simulation and dynamic system modeling."
                         </h2>
+                        <br/>
+                        <h3 class="text-primary-text-muted leading-[1.2]">
+                            "Drag the lanyard to interact."
+                        </h3>
                     </section>
 
                     <div class="flex md:mt-6 md:w-full md:h-full md:flex-col md:justify-between">
@@ -65,7 +69,7 @@ pub fn Home() -> impl IntoView {
                                 <Icon icon=icondata::BiAtRegular width="100%" height="100%"/>
                             </IconContainer>
 
-                            <AnimatedNavButton route="catalog" title="View services" class="max-md:hidden"/>
+                            <AnimatedNavButton route="experiments" title="View experiments" class="max-md:hidden"/>
                         </div>
                     </div>
                 </div>
@@ -87,7 +91,7 @@ pub fn Home() -> impl IntoView {
                         <LeptosSkillCard/>
                         <JavaScriptSkillCard/>
                         <TypeScriptSkillCard/>
-                        <ReactSkillCard/>
+                        <CppSkillCard/>
                         <RustSkillCard/>
                         <PythonSkillCard/>
                     </SkillCardContainer>

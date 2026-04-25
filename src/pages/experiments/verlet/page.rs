@@ -13,7 +13,7 @@ use crate::pages::experiments::{
 #[component]
 pub fn VerletExperiment() -> impl IntoView {
     view! {
-        <ExpandedView title="Verlet Simulation Crate" description="A custom crate published to crates.io - an engine that allows the addition of interactive Verlet simulations into any leptos app.">
+        <ExpandedView title="Verlet Simulation Crate" description="A custom crate published to crates.io with 4k+ downloads to date (https://crates.io/crates/leptos_verlet). It's an engine that allows the addition of interactive Verlet simulations into any leptos app like the lanyard on the homepage. Hint: select an item from the header, add it to the simulation and press play.">
             <iframe class="m-0 p-0 w-full h-full z-[0]" src="/verlet-frame"/>
         </ExpandedView>
     }
