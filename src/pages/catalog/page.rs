@@ -123,8 +123,6 @@ pub fn CatalogCard(
                     height="1678"
                 />
 
-                // <div class="flex-grow"/>
-
                 <div
                     class="w-full h-full rounded-md p-4 gap-2 flex justify-center items-center text-center"
                 >
