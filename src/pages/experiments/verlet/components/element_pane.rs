@@ -84,7 +84,7 @@ pub fn ElementPane(active_modifier: RwSignal<ModificationTarget>) -> impl IntoVi
         <div class="absolute top-2 left-[1/2] -translate-x-[1/2] p-1 border flex items-center justify-between rounded-md w-[calc(50dvw)] glass z-[20]">
             <div class="flex gap-4">
                 <ElementPaneItem icon=icondata::CgEditBlackPoint on_click=modification_point selected_item=active_modifier this_item=Some(ModificationTarget::Point) tooltip="Add a point"/>
-                <ElementPaneItem icon=icondata::BsLink45deg on_click=modification_line selected_item=active_modifier this_item=Some(ModificationTarget::Line) tooltip="Connect two point by clicking them"/>
+                <ElementPaneItem icon=icondata::BsLink45deg on_click=modification_line selected_item=active_modifier this_item=Some(ModificationTarget::Line) tooltip="Connect two points by clicking them"/>
                 <ElementPaneItem icon=icondata::LuSquareSlash on_click=spawn_square selected_item=active_modifier this_item=Some(ModificationTarget::SpawnSquare) tooltip="Add a 2D square"/>
                 <ElementPaneItem icon=icondata::TbCube on_click=spawn_cube selected_item=active_modifier this_item=Some(ModificationTarget::SpawnCube) tooltip="Add a 3D cube"/>
                 <ElementPaneItem icon=icondata::MdiTransitConnection on_click=spawn_rope selected_item=active_modifier this_item=Some(ModificationTarget::SpawnRope) tooltip="Add a rope"/>
@@ -94,7 +94,7 @@ pub fn ElementPane(active_modifier: RwSignal<ModificationTarget>) -> impl IntoVi
 
             <div class="flex gap-4">
                 <ElementPaneItem icon=icondata::AiInfoCircleOutlined on_click=point_info selected_item=active_modifier this_item=Some(ModificationTarget::PointInfo) tooltip="Modify a point's velocity"/>
-                <ElementPaneItem icon=icondata::BiLockOpenAltRegular on_click=modification_lock selected_item=active_modifier this_item=Some(ModificationTarget::Lock) tooltip="Click a point so lock it in space"/>
+                <ElementPaneItem icon=icondata::BiLockOpenAltRegular on_click=modification_lock selected_item=active_modifier this_item=Some(ModificationTarget::Lock) tooltip="Click a point to lock it in space"/>
                 <ElementPaneItem icon=icondata::IoCut on_click=modification_cut selected_item=active_modifier this_item=Some(ModificationTarget::Cut) tooltip="Click and drag to cut connections between points"/>
                 <ElementPaneItem icon=icondata::LuGrab on_click=modification_none selected_item=active_modifier this_item=Some(ModificationTarget::None) tooltip="Grab points and move them"/>
             </div>
