@@ -182,12 +182,18 @@ pub fn SpawnIdCard(active_modifier: RwSignal<ModificationTarget>) -> impl IntoVi
         }
     };
 
+    // Spawn ID card off the rip.
+    if let Ok(mouse_event) = web_sys::MouseEvent::new("") {
+        spawn_custom(mouse_event);
+    };
+
     view! {
         <ElementPaneItem
             icon=icondata::FaIdCardClipSolid
             on_click=spawn_custom
             selected_item=active_modifier
             this_item=None
+            tooltip="Add a lanyard"
         />
     }
 }

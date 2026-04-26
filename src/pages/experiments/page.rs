@@ -60,7 +60,7 @@ pub fn ExpandedView(
                         </h1>
                     </div>
 
-                    <h3 class=format!("text-primary-text-muted {}", description_class)>{description}</h3>
+                    <h2 class=format!("text-primary-text-muted leading-[1.2] whitespace-pre-line {}", description_class)>{description}</h2>
 
                     <h3 class="text-primary-text-muted visible md:invisible">"For the best experience, view on desktop."</h3>
                 </div>

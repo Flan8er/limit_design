@@ -58,21 +58,44 @@ pub fn SpawnIdCard() -> impl IntoView {
     let center_y = top_y + 0.05;
 
     // Define badge connections
-    let top_left = Vec3::new(-half_w, top_y, 0.0);
-    let top_right = Vec3::new(half_w, top_y, 0.0);
-    let top_center = Vec3::new(0.0, center_y, 0.0);
-    let bottom_left = Vec3::new(-half_w, top_y - RECT_HEIGHT, 0.0);
-    let bottom_right = Vec3::new(half_w, top_y - RECT_HEIGHT, 0.0);
+    // Define an initial rotation
+    let angle: f32 = 0.6; // ~34 degrees
+    let cos = angle.cos();
+    let sin = angle.sin();
+    //
+    // Rotate around pivot (top_center)
+    let rotate_point = |p: Vec3, pivot: Vec3, cos: f32, sin: f32| -> Vec3 {
+        let translated = p - pivot;
 
-    // Spawning a custom mesh when requested
+        let rotated_x = translated.x * cos - translated.y * sin;
+        let rotated_y = translated.x * sin + translated.y * cos;
+
+        Vec3::new(rotated_x, rotated_y, translated.z) + pivot
+    };
+    let top_center = Vec3::new(0.0, center_y, 0.0);
+    let top_left = rotate_point(Vec3::new(-half_w, top_y, 0.0), top_center, cos, sin);
+    let top_right = rotate_point(Vec3::new(half_w, top_y, 0.0), top_center, cos, sin);
+    let bottom_left = rotate_point(
+        Vec3::new(-half_w, top_y - RECT_HEIGHT, 0.0),
+        top_center,
+        cos,
+        sin,
+    );
+    let bottom_right = rotate_point(
+        Vec3::new(half_w, top_y - RECT_HEIGHT, 0.0),
+        top_center,
+        cos,
+        sin,
+    );
     let centroid: Vec3 = (top_right + bottom_left + bottom_right) / 3.;
 
+    // Spawning a custom mesh when requested
     model_loader_with_options(
         "/assets/id_badge.glb",
         "id_badge.glb",
         0,
-        Some(Vec3::new(0., centroid.y * 3. / 2. + 0.05, 0.)),
-        Some(Quat::from_rotation_y(-std::f32::consts::FRAC_PI_2)),
+        Some(Vec3::new(0., centroid.y * 3. / 2. - 0.58, -1.17)),
+        Some(Quat::from_rotation_y(-std::f32::consts::FRAC_PI_2) * Quat::from_rotation_x(angle)),
         Some(0.6),
     );
 

@@ -3,445 +3,441 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-        /* Main green background */
-        --background: 188 96% 10%;
-        /* Secondary white background */
-        --secondary-background: 180, 8%, 90%;
-        /* Pure white background */
-        --tertiary-background: 0 0% 100%;
-        /* Text for use on green background */
-        --primary-text: 0 0% 100%;
-        /* Muted text for use on green background */
-        --primary-text-muted: 188 19% 61%;
-        /* Text for use on white background */
-        --secondary-text: 188 78% 13%;
-        /* Yellow accent */
-        --accent: 77 100% 49%;
-        /* Subtle change on green background for accent ontop of primary background */
-        --foreground: 188 89% 11%;
-        /* Border for elements in main background */
-        --border: 186 80% 16%;
-        /* Grayish color */
-        --card: 231 25% 21%;
-        --card-active: 231 25% 25%;
-    }
+  :root {
+    /* Main green background */
+    --background: 188 96% 10%;
+    /* Secondary white background */
+    --secondary-background: 180, 8%, 90%;
+    /* Pure white background */
+    --tertiary-background: 0 0% 100%;
+    /* Text for use on green background */
+    --primary-text: 0 0% 100%;
+    /* Muted text for use on green background */
+    --primary-text-muted: 188 19% 61%;
+    /* Text for use on white background */
+    --secondary-text: 188 78% 13%;
+    /* Yellow accent */
+    --accent: 77 100% 49%;
+    /* Subtle change on green background for accent ontop of primary background */
+    --foreground: 188 89% 11%;
+    /* Border for elements in main background */
+    --border: 186 80% 16%;
+    /* Grayish color */
+    --card: 231 25% 21%;
+    --card-active: 231 25% 25%;
+  }
 }
 
 @layer base {
-    * {
-        margin: 0;
-        padding: 0;
-        @apply border-border font-sans;
-    }
-    body {
-        @apply bg-background text-primary-text font-light; /* default was font-normal → 400 */
-        font-feature-settings:
-            "rlig" 1,
-            "calt" 1;
-        height: 100dvh;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    @apply border-border font-sans;
+  }
+  body {
+    @apply bg-background text-primary-text font-light; /* default was font-normal → 400 */
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+    height: 100dvh;
+  }
 
-    h1 {
-        @apply font-medium;
-        font-size: 36px; /* Default */
-    }
+  h1 {
+    @apply font-medium;
+    font-size: 36px; /* Default */
+  }
 
-    h2 {
-        @apply font-normal;
-        font-size: 22px;
-    }
+  h2 {
+    @apply font-normal;
+    font-size: 22px;
+  }
 
-    h3 {
-        @apply font-light;
-        font-size: 14px;
-    }
+  h3 {
+    @apply font-light;
+    font-size: 14px;
+  }
 
-    p,
-    li,
-    span {
-        font-size: 12px;
-        line-height: 1.5;
-    }
+  p,
+  li,
+  span {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 
-    button {
-        font-size: 12px;
-        padding: 0.5rem 1rem;
-    }
+  button {
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+  }
 
-    input,
-    textarea {
-        font-size: 12px;
-        padding: 0.5rem;
-    }
+  input,
+  textarea {
+    font-size: 12px;
+    padding: 0.5rem;
+  }
 
-    /* Change the color of user-select properties */
-    ::selection {
-        background-color: hsl(var(--accent));
-        color: hsl(var(--secondary-text));
-    }
-    ::-moz-selection {
-        background-color: hsl(var(--accent));
-        color: hsl(var(--primary-text));
-    }
+  /* Change the color of user-select properties */
+  ::selection {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--secondary-text));
+  }
+  ::-moz-selection {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--primary-text));
+  }
 }
 
 @layer utilities {
-    canvas {
-        @apply border-none outline-none;
-    }
+  canvas {
+    @apply border-none outline-none;
+  }
 
-    .glass {
-        background: hsla(188, 96%, 10%, 0.6);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-    }
+  .glass {
+    background: hsla(188, 96%, 10%, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
 
-    .grid-background {
-        @apply bg-grid-lines border [background-position:-2px_-2px];
-        mask-image: linear-gradient(
-            to bottom,
-            rgba(255, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0) 100%
-        );
-        mask-size: 100% 100%;
-        mask-repeat: no-repeat;
-        -webkit-mask-image: linear-gradient(
-            to bottom,
-            rgba(255, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0) 100%
-        );
-        -webkit-mask-size: 100% 100%;
-        -webkit-mask-repeat: no-repeat;
-    }
+  .grid-background {
+    @apply bg-grid-lines border [background-position:-2px_-2px];
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(255, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+  }
 
-    .margin-background-2 {
-        /* @apply bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)]; */
-        /* your gradient */
-        background-image: repeating-linear-gradient(
-            315deg,
-            currentColor 0px,
-            currentColor 1px,
-            transparent 0px,
-            transparent 10px
-        );
-        /* your grid sizing */
-        background-size: 10px 10px;
-        /* fixed attachment */
-        background-attachment: fixed;
-    }
+  .margin-background-2 {
+    /* @apply bg-size-[10px_10px] bg-fixed bg-[repeating-linear-gradient(315deg,currentColor_0px,currentColor_1px,transparent_0px,transparent_10px)]; */
+    /* your gradient */
+    background-image: repeating-linear-gradient(
+      315deg,
+      currentColor 0px,
+      currentColor 1px,
+      transparent 0px,
+      transparent 10px
+    );
+    /* your grid sizing */
+    background-size: 10px 10px;
+    /* fixed attachment */
+    background-attachment: fixed;
+  }
 
-    span.shooting-star {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        animation: animate 10s linear infinite;
-    }
+  span.shooting-star {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: animate 10s linear infinite;
+  }
 
-    span.shooting-star:before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 300px;
-        height: 1px;
-        background: linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.05),
-            transparent
-        );
-    }
-    span.shooting-star:nth-child(1) {
-        top: 0;
-        right: 0;
-        animation-delay: 0;
-        animation-duration: 8s;
-    }
+  span.shooting-star:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), transparent);
+  }
+  span.shooting-star:nth-child(1) {
+    top: 0;
+    right: 0;
+    animation-delay: 0;
+    animation-duration: 8s;
+  }
 
-    span.shooting-star:nth-child(2) {
-        top: 0;
-        right: 80px;
-        left: initial;
-        animation-delay: -0.2s;
-        animation-duration: 10s;
-    }
+  span.shooting-star:nth-child(2) {
+    top: 0;
+    right: 80px;
+    left: initial;
+    animation-delay: -0.2s;
+    animation-duration: 10s;
+  }
 
-    span.shooting-star:nth-child(3) {
-        top: 80px;
-        right: 0px;
-        left: initial;
-        animation-delay: 0.4s;
-        animation-duration: 12s;
-    }
+  span.shooting-star:nth-child(3) {
+    top: 80px;
+    right: 0px;
+    left: initial;
+    animation-delay: 0.4s;
+    animation-duration: 12s;
+  }
 
-    span.shooting-star:nth-child(4) {
-        top: 0px;
-        right: 180px;
-        left: initial;
-        animation-delay: 0.6s;
-        animation-duration: 7s;
-    }
+  span.shooting-star:nth-child(4) {
+    top: 0px;
+    right: 180px;
+    left: initial;
+    animation-delay: 0.6s;
+    animation-duration: 7s;
+  }
 
-    span.shooting-star:nth-child(5) {
-        top: 0px;
-        right: 400px;
-        left: initial;
-        animation-delay: 0.8z;
-        animation-duration: 9s;
-    }
+  span.shooting-star:nth-child(5) {
+    top: 0px;
+    right: 400px;
+    left: initial;
+    animation-delay: 0.8z;
+    animation-duration: 9s;
+  }
 
-    span.shooting-star:nth-child(6) {
-        top: 0px;
-        right: 600px;
-        left: initial;
-        animation-delay: 1s;
-        animation-duration: 11s;
-    }
+  span.shooting-star:nth-child(6) {
+    top: 0px;
+    right: 600px;
+    left: initial;
+    animation-delay: 1s;
+    animation-duration: 11s;
+  }
 
-    span.shooting-star:nth-child(7) {
-        top: 300px;
-        right: 0px;
-        left: initial;
-        animation-delay: 1.2s;
-        animation-duration: 9.5s;
-    }
+  span.shooting-star:nth-child(7) {
+    top: 300px;
+    right: 0px;
+    left: initial;
+    animation-delay: 1.2s;
+    animation-duration: 9.5s;
+  }
 
-    span.shooting-star:nth-child(8) {
-        top: 0px;
-        right: 700px;
-        left: initial;
-        animation-delay: 1.4s;
-        animation-duration: 10.25s;
-    }
+  span.shooting-star:nth-child(8) {
+    top: 0px;
+    right: 700px;
+    left: initial;
+    animation-delay: 1.4s;
+    animation-duration: 10.25s;
+  }
 
-    span.shooting-star:nth-child(9) {
-        top: 0px;
-        right: 1000px;
-        left: initial;
-        animation-delay: 0.75s;
-        animation-duration: 8.5s;
-    }
+  span.shooting-star:nth-child(9) {
+    top: 0px;
+    right: 1000px;
+    left: initial;
+    animation-delay: 0.75s;
+    animation-duration: 8.5s;
+  }
 
-    span.shooting-star:nth-child(10) {
-        top: 0px;
-        right: 450px;
-        left: initial;
-        animation-delay: 2.75s;
-        animation-duration: 11.75s;
-    }
+  span.shooting-star:nth-child(10) {
+    top: 0px;
+    right: 450px;
+    left: initial;
+    animation-delay: 2.75s;
+    animation-duration: 11.75s;
+  }
 
-    button.social-button:hover svg {
-        color: #3b82f6; /* Tailwind blue-500 */
-    }
-    a.social-button:hover svg {
-        color: #3b82f6; /* Tailwind blue-500 */
-    }
-    .transition-bounce {
-        transition: all 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .animation-container:hover .animate-slide {
-        animation-play-state: paused;
-    }
-    .animate-slide {
-        display: inline-block;
-        animation: slide 35s linear infinite;
-    }
+  button.social-button:hover svg {
+    color: #3b82f6; /* Tailwind blue-500 */
+  }
+  a.social-button:hover svg {
+    color: #3b82f6; /* Tailwind blue-500 */
+  }
+  .transition-bounce {
+    transition: all 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .animation-container:hover .animate-slide {
+    animation-play-state: paused;
+  }
+  .animate-slide {
+    display: inline-block;
+    animation: slide 35s linear infinite;
+  }
 
-    #glow-cards:hover > .glow-card > .glow-card-border {
-        opacity: 1;
-    }
-    .glow-card {
-        background-color: hsl(186, 80%, 16%);
-        position: relative;
-    }
-    .glow-card:hover::before {
-        opacity: 1;
-    }
-    .glow-card::before,
-    .glow-card > .glow-card-border {
-        border-radius: inherit;
-        content: "";
-        position: absolute;
-        inset: 0px;
-        z-index: 2;
-        opacity: 0;
-        transition: opacity 500ms;
-    }
-    .glow-card::before {
-        background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.06),
-            transparent 40%
-        );
-        z-index: 3;
-    }
-    .glow-card > .glow-card-border {
-        background: radial-gradient(
-            400px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.3),
-            transparent 40%
-        );
-        z-index: 1;
-    }
-    .glow-card > .glow-card-content {
-        background-color: hsl(188, 96%, 10%);
-        border-radius: inherit;
-        margin: 1px;
-        height: calc(100% - 2px);
-        width: calc(100% - 2px);
-        position: relative;
-        z-index: 2;
-    }
+  #glow-cards:hover > .glow-card > .glow-card-border {
+    opacity: 1;
+  }
+  .glow-card {
+    background-color: hsl(186, 80%, 16%);
+    position: relative;
+  }
+  .glow-card:hover::before {
+    opacity: 1;
+  }
+  .glow-card::before,
+  .glow-card > .glow-card-border {
+    border-radius: inherit;
+    content: "";
+    position: absolute;
+    inset: 0px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  .glow-card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+  .glow-card > .glow-card-border {
+    background: radial-gradient(
+      400px circle at var(--mouse-x) var(--mouse-y),
+      rgba(255, 255, 255, 0.3),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  .glow-card > .glow-card-content {
+    background-color: hsl(188, 96%, 10%);
+    border-radius: inherit;
+    margin: 1px;
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    position: relative;
+    z-index: 2;
+  }
 }
 
 @keyframes animate {
-    0% {
-        transform: rotate(315deg) translateX(0);
-        opacity: 1;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(315deg) translateX(-1000px);
-        opacity: 0;
-    }
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-1000px);
+    opacity: 0;
+  }
 }
 @keyframes slide {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Thin.ttf")
-        format("truetype");
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Thin.ttf")
+    format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ThinItalic.ttf")
-        format("truetype");
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ThinItalic.ttf")
+    format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLight.ttf")
-        format("truetype");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLight.ttf")
+    format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLightItalic.ttf")
-        format("truetype");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-ExtraLightItalic.ttf")
+    format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Light.ttf")
-        format("truetype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Light.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-LightItalic.ttf")
-        format("truetype");
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-LightItalic.ttf")
+    format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf")
-        format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Italic.ttf")
-        format("truetype");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Italic.ttf")
+    format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Medium.ttf")
-        format("truetype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Medium.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-MediumItalic.ttf")
-        format("truetype");
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-MediumItalic.ttf")
+    format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf")
-        format("truetype");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBold.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBoldItalic.ttf")
-        format("truetype");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-SemiBoldItalic.ttf")
+    format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf")
-        format("truetype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "IBM Plex Mono";
-    src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.ttf")
-        format("truetype");
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBM_Plex_Mono/IBMPlexMono-BoldItalic.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url("../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
-        format("truetype");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-    font-family: "Inter";
-    src: url("../assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
-        format("truetype");
-    font-weight: 100 900;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
 }
