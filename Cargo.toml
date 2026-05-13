@@ -17,6 +17,7 @@ leptos_icons = { version = "0.7" }
 icondata = { version = "0.5" }                                    # https://carloskiki.github.io/icondata/
 leptos-use = { version = "0.16", features = ["use_window_size"] }
 
+nalgebra = "0.34.2"
 getrandom = { version = "0.3", features = ["wasm_js"] }
 bevy = { version = "0.16" }
 bevy_dev_tools = "0.16"
@@ -24,6 +25,7 @@ leptos-bevy-canvas = "0.3.0"
 bevy_panorbit_camera = "=0.27.1"
 bevy_light_2d = "0.7.0"
 bevy_third_person_camera = "=0.3.0"
+bevy_polyline = "0.12.0"
 
 codee = "0.3.2"
 serde = "1.0.219"

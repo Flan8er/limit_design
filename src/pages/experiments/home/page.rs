@@ -6,6 +6,7 @@ use crate::components::icons::{BevyIcon, BlenderIcon, LeptosIcon};
 
 #[component]
 pub fn ExperimentsHome() -> impl IntoView {
+    let threat_prediction_icons = vec![view! {<BevyIcon/>}.into_any()];
     let six_axis_icons = vec![
         view! {<LeptosIcon/>}.into_any(),
         view! {<BlenderIcon/>}.into_any(),
@@ -44,6 +45,7 @@ pub fn ExperimentsHome() -> impl IntoView {
             </div>
 
             <div class="grid gap-x-4 gap-y-8 pb-8 px-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <ExperimentCard title="Threat Prediction" route="/experiments/threat-prediction" image="/static/ThreatPreview.png" icons=threat_prediction_icons/>
                 <ExperimentCard title="6-Axis Robot Arm" route="/experiments/robot-simulation" image="/static/RobotSimulationPreview.png" icons=six_axis_icons/>
                 <ExperimentCard title="Reentry Capsule Simulation" route="/experiments/reentry-simulation" image="/static/ReentryPreview.png" icons=reentry_icons/>
                 <ExperimentCard title="Verlet Simulation Crate" route="/experiments/verlet-simulation" image="/static/VerletPreview.png" icons=verlet_icons/>

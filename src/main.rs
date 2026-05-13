@@ -11,7 +11,8 @@ use crate::{
     components::id_card::BadgeSimulation,
     pages::experiments::{
         galaga::page::GalagaFrame, node_tree::canvas::page::TreeRouter,
-        reentry::page::ReentryFrame, robot::page::RobotFrame, verlet::page::VerletFrame,
+        reentry::page::ReentryFrame, robot::page::RobotFrame,
+        threat_prediction::page::ThreatPredictionFrame, verlet::page::VerletFrame,
         waveform::page::WaveformFrame,
     },
 };
@@ -64,6 +65,12 @@ pub fn main() {
         mount_to_body(move || {
             view! {
                 <GalagaFrame/>
+            }
+        })
+    } else if path.contains("threat-prediction-frame") {
+        mount_to_body(move || {
+            view! {
+                <ThreatPredictionFrame/>
             }
         })
     } else {

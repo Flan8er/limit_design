@@ -9,8 +9,8 @@ use crate::{
     pages::experiments::{
         galaga::page::GalagaExperiment, home::page::ExperimentsHome,
         node_tree::page::NodeTreeExperiment, reentry::page::ReentryExperiment,
-        robot::page::RobotExperiment, verlet::page::VerletExperiment,
-        waveform::page::WaveformExperiment,
+        robot::page::RobotExperiment, threat_prediction::page::ThreatPredictionExperiment,
+        verlet::page::VerletExperiment, waveform::page::WaveformExperiment,
     },
 };
 
@@ -25,6 +25,7 @@ pub fn ExperimentRoutes() -> impl MatchNestedRoutes + Clone {
             <Route path=path!("/waveform") view=|| WaveformExperiment />
             <Route path=path!("/reentry-simulation") view=|| ReentryExperiment />
             <Route path=path!("/galaga") view=|| GalagaExperiment />
+            <Route path=path!("/threat-prediction") view=|| ThreatPredictionExperiment />
         </ParentRoute>
     }
     .into_inner()
