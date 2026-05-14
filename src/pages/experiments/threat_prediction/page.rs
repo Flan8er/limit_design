@@ -108,7 +108,7 @@ pub fn ThreatPredictionFrame() -> impl IntoView {
                 </div>
                 <div class="flex items-center gap-2 mx-1">
                     <p>"Heading:"</p>
-                    <SpinButton<f64> value=heading_model step_page=10. min=0. max=85./>
+                    <SpinButton<f64> value=heading_model step_page=10. min=5. max=85./>
                 </div>
                 <div class="flex items-center gap-2 mx-1">
                     <p>"Latitude:"</p>
