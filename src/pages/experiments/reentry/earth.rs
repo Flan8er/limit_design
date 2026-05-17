@@ -11,8 +11,9 @@ pub fn spawn_earth(mut commands: Commands, scene_assets: Res<SceneAssets>) {
         Transform {
             rotation: Quat::from_axis_angle(
                 Vec3::new(0., 1., 0.),
-                (-45. * std::f32::consts::PI) / 180.0,
+                (-0. * std::f32::consts::PI) / 180.0,
             ),
+            scale: Vec3::splat(1.275 * 10_000.0),
             ..Default::default()
         },
         GlobalTransform::default(),

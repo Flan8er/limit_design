@@ -3,6 +3,10 @@ name = "limit"
 version = "0.1.0"
 edition = "2021"
 
+[profile.release]
+lto = true
+codegen-units = 1
+
 [dependencies]
 console_error_panic_hook = "0.1.7"
 leptos = { version = "0.8", features = ["csr"] }

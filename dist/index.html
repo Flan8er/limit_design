@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
 <script type="module">
-import init, * as bindings from '/limit-75a441cbf566e951.js';
-const wasm = await init({ module_or_path: '/limit-75a441cbf566e951_bg.wasm' });
+import init, * as bindings from '/limit-9af5995afd776240.js';
+const wasm = await init({ module_or_path: '/limit-9af5995afd776240_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -37,7 +37,44 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
     <base href="/" />
 
     <title>Simulation and Dynamics Engineer - CASEY VAUGHN</title>
-  <link rel="modulepreload" href="/limit-75a441cbf566e951.js" crossorigin="anonymous" integrity="sha384-BUKFBwrAy4oO+ChNUEagmZdqhtMF+bV+iCjm6KOoW78HYI6aHO+mqd327wctlU9V"><link rel="preload" href="/limit-75a441cbf566e951_bg.wasm" crossorigin="anonymous" integrity="sha384-CxPBYh4S87a2iRGUTB5jBPoboDgK2iqHphSy0pH80A4UQxaM1PSLItZfz8x4dbiA" as="fetch" type="application/wasm"></head>
+  <link rel="modulepreload" href="/limit-9af5995afd776240.js" crossorigin="anonymous" integrity="sha384-XoVdwxhLG4QyvkGLI92LcRt+M/XWyo/WrYBYD+b22wA9eB5nB+tPialOZcRo40wL"><link rel="preload" href="/limit-9af5995afd776240_bg.wasm" crossorigin="anonymous" integrity="sha384-+NW2d1fmY2w14Z3ZYLVGHDZHYhrR9j1WIwqJuvToc25OuO6GbFGXk1GqvI/G2C8V" as="fetch" type="application/wasm"></head>
 
-  <body></body>
+  <style>
+      #loading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        gap: 1rem;
+      }
+
+      .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid #ffffff20;
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+      }
+
+      .loading-text {
+        color: #ffffff80;
+        font-family: monospace;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+      }
+
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loading">
+      <div class="spinner"></div>
+      <span class="loading-text">LOADING</span>
+    </div>
+  </body>
 </html>

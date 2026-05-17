@@ -21,6 +21,15 @@ pub fn main() {
     let theme = RwSignal::new(Theme::dark());
     console_error_panic_hook::set_once();
 
+    // After all assets are loaded, remove the Loading spinner
+    if let Some(window) = web_sys::window() {
+        if let Some(document) = window.document() {
+            if let Some(el) = document.get_element_by_id("loading") {
+                el.remove();
+            }
+        }
+    }
+
     let path = web_sys::window()
         .and_then(|w| w.location().pathname().ok())
         .unwrap_or_default();
