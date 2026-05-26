@@ -133,8 +133,8 @@ pub fn ThreatPredictionFrame() -> impl IntoView {
 pub fn ThreatPredictionExperiment() -> impl IntoView {
     view! {
         <ExpandedView
-            title="Threat Prediction"
-            description="Real-time ballistic trajectory prediction pipeline modeled after missile defense applications. Fuses an Euler integrator (modeling payload weight, atmospheric drag, and altitude-dependent atmospheric density and temperature) with a Keplerian orbit solver accounting for Coriolis effects. Reconstructs full threat trajectories from just 3 points within 500 meters and re-couples to the Euler simulation at Kármán line for atmospheric reentry phase modeling.\n\nThe 'Idealized' plot shows the trajectory as if no outside forces were at play and the Earth were stationary, and the 'Actual' plot shows these forces."
+            title="Ballistic Propagation Model"
+            description="Real-time ballistic trajectory prediction pipeline used to model adversarial threat launches. Fuses an Euler integrator (modeling payload weight, atmospheric drag, and altitude-dependent atmospheric density and temperature) with a Keplerian orbit solver accounting for Coriolis effects. Reconstructs full threat trajectories from just 3 points within 500 meters and re-couples to the Euler simulation at Kármán line for atmospheric reentry phase modeling.\n\nThe 'Idealized' plot shows the trajectory as if no outside forces were at play and the Earth were stationary, and the 'Actual' plot shows these forces."
         >
             <div class="flex w-full h-full relative z-[0]">
                 <div class="z-[10] absolute bottom-4 right-4 gap-4 flex flex-col items-end text-primary-text">
